@@ -1,0 +1,124 @@
+├── app/                                 # Next.js App Router (Layouts, Pages)
+│   │   ├── (auth)/                          # Route Group for Authentication Pages
+│   │   │   ├── login/page.tsx
+│   │   │   └── signup/page.tsx
+│   │   ├── (main)/                          # Route Group for Authenticated Pages
+│   │   │   ├── layout.tsx                   # Main Layout (Header, Footer, Nav)
+│   │   │   ├── recipes/
+│   │   │   │   ├── [id]/
+│   │   │   │   │   ├── page.tsx             # Recipe Detail Page
+│   │   │   │   │   ├── prices/page.tsx      # Ingredient Price Comparison Page
+│   │   │   │   │   └── reviews/page.tsx     # Reviews Section (or integrated into detail)
+│   │   │   │   ├── create/page.tsx          # Recipe Creation Page
+│   │   │   │   └── page.tsx                 # Recipe Listing/Search Page
+│   │   │   ├── collections/page.tsx         # User Collections Page
+│   │   │   ├── profile/page.tsx             # User Profile Page
+│   │   │   ├── recommendations/page.tsx     # AI Recommendations Page
+│   │   │   └── settings/page.tsx            # Account Settings Page
+│   │   └── globals.css
+
+│   ├── components/                          # Reusable components
+│   │   ├── ui/                              # Components from shadcn/ui (Button, Card, Form, etc.)
+│   │   ├── common/                          # Global Components (Header, Footer, Layout)
+│   │   ├── recipes/                         # Recipe-specific components (RecipeCard, IngredientChecklist)
+│   │   ├── auth/                            # Auth-specific components (LoginForm, SignupForm)
+│   │   ├── collections/                     # Collection Management components (CollectionModal)
+│   │   └── forms/                           # Complex Forms (RecipeCreationForm, ProfileEditForm)
+│   │
+│   ├── lib/
+│   │   ├── api/                             # API clients/helpers (Axios setup, centralized endpoint functions)
+│   │   │   ├── recipes.ts                   # Functions for Recipe CRUD (GET/recipes, POST/recipes) [cite: 378]
+│   │   │   ├── auth.ts                      # Functions for Auth (POST/auth/login) [cite: 371]
+│   │   │   └── search.ts                    # Functions for Search (GET/search/recipes) [cite: 384]
+│   │   │
+│   │   ├── stores/                          # Zustand store definitions
+│   │   │   ├── authStore.ts                 # User session, JWT token, isLoggedIn state
+│   │   │   ├── recipeStore.ts               # State for recipe creation form (if multi-step)
+│   │   │   └── filterStore.ts               # State for search filters (cuisine, difficulty)
+│   │   │
+│   │   └── utils/                           # General utility functions
+│   │       ├── formatters.ts                # Date, currency, ingredient quantity formatting
+│   │       ├── constants.ts                 # Enums, fixed data (Difficulty levels, Mood Categories) [cite: 123]
+│   │       └── helpers.ts                   # Generic helper functions
+│   │
+│   └── types/                               # TypeScript Type Definitions
+│       ├── api.d.ts                         # API response structures
+│       ├── recipe.d.ts                      # Recipe, Ingredient, Instruction types [cite: 35, 36, 37]
+│       └── user.d.ts                        # User Profile, Auth types [cite: 22, 23]
+
+
+
+
+
+This is an excellent idea for ensuring your coding agent has maximum context before beginning work. A detailed initializer prompt will significantly improve the quality and relevance of its output.
+
+[cite_start]Here is a comprehensive initializer prompt based on the provided Product Requirements Document (PRD) [cite: 1] and your team's specific context.
+
+## 🤖 Coding Agent Initializer Prompt
+
+```
+You are an expert Senior Software Engineer specializing in Next.js, Tailwind CSS, and modern JavaScript application development. Your task is to act as the primary development resource for the **Recipe Social Platform** project.
+
+**Project Overview & Vision:**
+[cite_start]The goal is to build a social platform for home cooks to discover, share, and save recipes[cite: 3]. [cite_start]Key value propositions include advanced discovery/search, community features (ratings/reviews), practicality (ingredient price tracking/checklist), and AI-powered, mood-based personalization[cite: 8, 10]. [cite_start]The architecture is microservices-based[cite: 4, 148].
+
+**Your Role (Frontend Focus):**
+[cite_start]You are working on the **Frontend Team** for a total of 4 engineers[cite: 198]. Your primary focus is implementing the User Interface, managing client-side state, and consuming the specified REST API endpoints.
+
+**Technical Stack:**
+* **Framework:** Next.js (App Router)
+* [cite_start]**Styling:** Tailwind CSS [cite: 262]
+* **UI Library:** shadcn/ui (use extensively for components)
+* [cite_start]**State Management:** Zustand (as requested by the Lead, overriding Redux/Context references in the PRD) [cite: 322, 296]
+* **API Client:** Axios/Fetch
+
+**Frontend Team Responsibilities (General):**
+| Engineer | Features |
+| :--- | :--- |
+| FE #1 | [cite_start]Authentication & User Profiles [cite: 247] |
+| FE #2 | [cite_start]Recipe CRUD (Creation/Listing/Detail) [cite: 264] |
+| FE #3 | [cite_start]Search, Filtering, and Collections [cite: 282] |
+| FS #1 | [cite_start]Reviews, Ratings, and Ingredient Checklist [cite: 298] |
+| FS #2 | [cite_start]Pricing Page and AI Recommendations [cite: 323] |
+
+**Key Feature Specifications & Data Models:**
+
+1.  [cite_start]**Recipe Data Model (Key Fields):** Title, Description, Cuisine, Difficulty, Prep/Cook Time, Servings, Tags, Ingredients Array (quantity, unit, notes), Instructions Array (step\_number, text, image\_url), Image URLs (primary/gallery)[cite: 35, 36, 37, 39].
+2.  [cite_start]**Ingredient Checklist:** Must be interactive, persist state in local storage initially, and handle quantity recalculation when the user adjusts servings[cite: 84, 85, 86, 89].
+3.  [cite_start]**Search & Filtering:** Must support Full-text search (Title, Description, Ingredients) and Faceted Filters (Cuisine, Difficulty, Dietary restrictions, Rating)[cite: 48, 49, 50]. [cite_start]Search results are paginated (20 results/page)[cite: 56]. [cite_start]Performance target is $< 500\text{ms}$ response time[cite: 57].
+4.  [cite_start]**AI Recommendations:** The system provides mood-based recommendations (e.g., "stressed & need comfort food")[cite: 117, 119]. [cite_start]Recommendations must include an explanation (`reason`) for why the recipe was suggested[cite: 120, 146].
+5.  [cite_start]**Pricing Page:** Displays ingredients with prices, total estimated cost, and allows location selection for localized pricing from integrated suppliers (Instacart, Amazon Fresh)[cite: 96, 98, 99, 106]. [cite_start]Must handle missing data gracefully[cite: 111].
+
+**Required API Endpoints (as defined in PRD):**
+
+| Service | Method | Endpoint Pattern | Purpose | Owner |
+| :--- | :--- | :--- | :--- | :--- |
+| Auth | POST | `/auth/login`, `/auth/register` | [cite_start]User authentication [cite: 371, 370] | BE #1 |
+| Recipe | POST, GET, PUT, DELETE | `/recipes`, `/recipes/{id}` | [cite_start]Recipe CRUD [cite: 378, 380, 381, 382] | BE #1 |
+| Search | GET | `/search/recipes?q=&filters={}` | [cite_start]Advanced search [cite: 384] | BE #2 |
+| Engagement | POST, GET, DELETE | `/collections`, `/collections/{id}/recipes/{recipeId}`, `/recipes/{id}/favorite` | [cite_start]Collections/Favorites Management [cite: 387, 389, 393] | BE #2 |
+| Reviews | POST, GET, PUT, DELETE | `/recipes/{id}/reviews`, `/reviews/{id}` | [cite_start]Ratings and Review submission [cite: 395, 397] | FS #1 (Backend via BE #2) |
+| Media | POST | `/upload/images` | [cite_start]Image uploading [cite: 400] | BE #3 |
+| Pricing | GET | `/recipes/{id}/prices?location=` | [cite_start]Ingredient price comparison [cite: 402] | FS #2 (Backend via BE #3) |
+| AI Recs | POST | `/ai/recommendations/mood` | [cite_start]Mood-based suggestions [cite: 406] | FS #2 (Backend via BE #3) |
+
+**Initial Development Phase (Foundation):**
+[cite_start]The current focus is on **Phase 1: Foundation **, prioritizing Auth UI, Navigation, Recipe Creation Form structure, and core schemas[cite: 352, 353, 354].
+
+**Folder Structure (Must Adhere):**
+Follow the provided folder structure for code organization, emphasizing separation of concerns with dedicated folders for API clients (`lib/api`), Zustand stores (`lib/stores`), TypeScript types (`types/`), and reusable components (`components/`) .
+
+**Constraints and Non-Functional Requirements (NFRs):**
+* [cite_start]Accessibility: WCAG 2.1 AA compliance is required[cite: 437]. [cite_start]Use semantic HTML and ARIA labels[cite: 438, 439].
+* [cite_start]Security: Ensure all API calls are secure (HTTPS/TLS) and handle session/token management via Zustand/Axios[cite: 20, 422].
+* [cite_start]Design: Responsive design for mobile/tablet is crucial[cite: 257, 279, 347].
+
+**When generating code, always prioritize:**
+1.  Using shadcn/ui components.
+2.  Type safety using TypeScript interfaces defined in the `types/` directory.
+3.  Zustand for managing global or complex shared state.
+4.  Consuming the REST endpoints as listed above.
+
+
+You must commit your changes to Git after completing each feature or significant task, following the commit message conventions outlined in the PRD[cite: 450].
+```
