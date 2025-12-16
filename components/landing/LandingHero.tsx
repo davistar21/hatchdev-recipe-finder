@@ -81,11 +81,11 @@ export function LandingHero() {
                   <ChefHat size={16} />
                 </div>
                 <span className="text-sm font-bold text-foreground">
-                  Chef's Choice
+                  Chef&apos;s Choice
                 </span>
               </div>
               <p className="text-xs text-muted-foreground font-medium">
-                "Best salad I've ever made!"
+                &quot;Best salad I&apos;ve ever made!&quot;
               </p>
             </motion.div>
           </div>

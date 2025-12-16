@@ -3,6 +3,7 @@
 import React from "react";
 import { ShoppingBasket, ArrowRight, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 interface IngredientListProps {
   ingredients: Ingredient[];
@@ -14,28 +15,33 @@ export function IngredientList({ ingredients, servings }: IngredientListProps) {
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-bold text-foreground">Ingredients</h2>
-        <button className="text-sm font-bold text-muted-foreground bg-muted px-3 py-1 rounded-lg">
+        <Button
+          variant="secondary"
+          size="sm"
+          className="font-bold text-muted-foreground"
+        >
           {servings} Servings
-        </button>
+        </Button>
       </div>
 
       {/* Price Check CTA */}
-      <motion.button
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        className="w-full bg-primary active:bg-primary/90 transition-colors rounded-xl p-4 flex items-center justify-between group shadow-lg shadow-primary/20"
+      <Button
+        asChild
+        className="w-full h-auto bg-primary text-primary-foreground hover:bg-primary/90 transition-colors rounded-xl p-4 flex items-center justify-between group shadow-lg shadow-primary/20"
       >
-        <div className="flex items-center gap-3">
-          <div className="bg-black p-2 rounded-lg text-white">
-            <ShoppingBasket className="w-5 h-5" />
+        <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+          <div className="flex items-center gap-3">
+            <div className="bg-black p-2 rounded-lg text-white">
+              <ShoppingBasket className="w-5 h-5" />
+            </div>
+            <div className="text-left">
+              <p className="text-black font-bold text-sm">Check local prices</p>
+              <p className="text-black/70 text-xs">Compare stores nearby</p>
+            </div>
           </div>
-          <div className="text-left">
-            <p className="text-black font-bold text-sm">Check local prices</p>
-            <p className="text-black/70 text-xs">Compare stores nearby</p>
-          </div>
-        </div>
-        <ArrowRight className="w-5 h-5 text-black group-hover:translate-x-1 transition-transform" />
-      </motion.button>
+          <ArrowRight className="w-5 h-5 text-black group-hover:translate-x-1 transition-transform" />
+        </motion.button>
+      </Button>
 
       {/* Ingredients List */}
       <div className="flex flex-col gap-3">

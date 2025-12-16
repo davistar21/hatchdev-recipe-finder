@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Search, SlidersHorizontal } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function SearchBar() {
   return (
@@ -19,9 +20,9 @@ export function SearchBar() {
             />
           </div>
         </label>
-        <button className="flex items-center justify-center h-12 w-12 bg-primary rounded-xl text-primary-foreground hover:bg-primary/90 transition-colors shadow-sm shrink-0">
+        <Button size="icon" className="h-12 w-12 rounded-xl shadow-sm shrink-0">
           <SlidersHorizontal className="w-5 h-5" />
-        </button>
+        </Button>
       </div>
     </div>
   );

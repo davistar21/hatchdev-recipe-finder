@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Heart, Bookmark, Star } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 interface RecipeActionBarProps {
   likes?: string;
@@ -25,9 +26,10 @@ export function RecipeActionBar({
       transition={{ delay: 0.35 }}
       className="flex justify-between items-center bg-card rounded-2xl p-2 shadow-sm border border-border"
     >
-      <button
+      <Button
+        variant="ghost"
+        className="flex-1 flex-col h-auto py-3 rounded-xl hover:bg-muted group"
         onClick={() => setLiked(!liked)}
-        className="flex-1 flex flex-col items-center justify-center gap-1 py-3 rounded-xl hover:bg-muted transition-colors group"
       >
         <motion.div whileTap={{ scale: 0.8 }}>
           <Heart
@@ -41,13 +43,14 @@ export function RecipeActionBar({
         <span className="text-xs font-semibold text-muted-foreground">
           {likes}
         </span>
-      </button>
+      </Button>
 
       <div className="w-px h-8 bg-border"></div>
 
-      <button
+      <Button
+        variant="ghost"
+        className="flex-1 flex-col h-auto py-3 rounded-xl hover:bg-muted group"
         onClick={() => setSaved(!saved)}
-        className="flex-1 flex flex-col items-center justify-center gap-1 py-3 rounded-xl hover:bg-muted transition-colors group"
       >
         <motion.div whileTap={{ scale: 0.8 }}>
           <Bookmark
@@ -59,16 +62,19 @@ export function RecipeActionBar({
           />
         </motion.div>
         <span className="text-xs font-semibold text-foreground">Saved</span>
-      </button>
+      </Button>
 
       <div className="w-px h-8 bg-border"></div>
 
-      <button className="flex-1 flex flex-col items-center justify-center gap-1 py-3 rounded-xl hover:bg-muted transition-colors group">
+      <Button
+        variant="ghost"
+        className="flex-1 flex-col h-auto py-3 rounded-xl hover:bg-muted group"
+      >
         <Star className="w-6 h-6 text-muted-foreground group-hover:text-yellow-500 transition-colors" />
         <span className="text-xs font-semibold text-muted-foreground">
           {rating} ({reviewsCount})
         </span>
-      </button>
+      </Button>
     </motion.div>
   );
 }

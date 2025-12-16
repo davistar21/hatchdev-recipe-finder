@@ -146,7 +146,7 @@ export function AuthForm({ mode }: AuthFormProps) {
 
           {/* Footer Terms */}
           <p className="text-center text-xs text-muted-foreground pb-8 px-4 leading-relaxed">
-            By continuing, you agree to RecipeSocial's <br />
+            By continuing, you agree to RecipeSocial&apos;s <br />
             <Link href="#" className="underline hover:text-foreground">
               Terms of Service
             </Link>{" "}

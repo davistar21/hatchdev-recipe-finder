@@ -2,9 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Utensils, Mail, EyeOff, ArrowRight, Star } from "lucide-react";
 
-interface SocialLoginButtonsProps {}
-
-export function SocialLoginButtons({}: SocialLoginButtonsProps) {
+export function SocialLoginButtons() {
   return (
     <div className="grid grid-cols-3 gap-4 mb-8">
       {/* Google */}

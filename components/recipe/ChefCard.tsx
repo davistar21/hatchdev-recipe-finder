@@ -3,6 +3,7 @@
 import React from "react";
 import { BadgeCheck } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 interface ChefCardProps {
   chef: Chef;
@@ -35,9 +36,9 @@ export function ChefCard({ chef }: ChefCardProps) {
           )}
         </div>
       </div>
-      <button className="px-4 py-2 bg-muted rounded-full text-xs font-bold text-foreground hover:bg-muted/80 transition-colors">
+      <Button variant="secondary" size="sm" className="rounded-full font-bold">
         View Profile
-      </button>
+      </Button>
     </motion.div>
   );
 }

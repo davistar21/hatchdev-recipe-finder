@@ -13,8 +13,8 @@ export function LandingFeatures() {
             Everything you need to cook better
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            From finding the perfect recipe to sharing your own creations, we've
-            got you covered.
+            From finding the perfect recipe to sharing your own creations,
+            we&apos;ve got you covered.
           </p>
         </div>
 

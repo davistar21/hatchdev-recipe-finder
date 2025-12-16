@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Button } from "@/components/ui/button";
 
 export function MetadataSelector() {
   return (
@@ -11,15 +12,21 @@ export function MetadataSelector() {
           Difficulty
         </label>
         <div className="flex gap-3">
-          <button className="flex-1 bg-primary text-black font-bold py-2.5 px-4 rounded-xl text-sm shadow-sm ring-2 ring-primary/20">
+          <Button className="flex-1 bg-primary text-black font-bold py-2.5 px-4 rounded-xl text-sm shadow-sm ring-2 ring-primary/20 hover:bg-primary/90 h-auto">
             Easy
-          </button>
-          <button className="flex-1 bg-card border border-border text-muted-foreground font-medium py-2.5 px-4 rounded-xl text-sm hover:bg-muted transition-colors">
+          </Button>
+          <Button
+            variant="outline"
+            className="flex-1 bg-card border-border text-muted-foreground font-medium py-2.5 px-4 rounded-xl text-sm hover:bg-muted transition-colors h-auto"
+          >
             Medium
-          </button>
-          <button className="flex-1 bg-card border border-border text-muted-foreground font-medium py-2.5 px-4 rounded-xl text-sm hover:bg-muted transition-colors">
+          </Button>
+          <Button
+            variant="outline"
+            className="flex-1 bg-card border-border text-muted-foreground font-medium py-2.5 px-4 rounded-xl text-sm hover:bg-muted transition-colors h-auto"
+          >
             Hard
-          </button>
+          </Button>
         </div>
       </div>
       {/* Cuisine Scrolls */}
@@ -35,16 +42,17 @@ export function MetadataSelector() {
         <div className="flex overflow-x-auto no-scrollbar gap-3 px-4 pb-2">
           {["Italian", "Mexican", "Japanese", "Indian", "Thai"].map(
             (cuisine, index) => (
-              <button
+              <Button
                 key={cuisine}
-                className={`shrink-0 bg-card border ${
+                variant={index === 0 ? "default" : "outline"}
+                className={`shrink-0 border ${
                   index === 0
-                    ? "border-primary text-foreground"
-                    : "border-border text-muted-foreground"
-                } font-medium py-2 px-5 rounded-full text-sm hover:border-gray-300`}
+                    ? "border-primary text-foreground bg-card hover:bg-card/90"
+                    : "border-border text-muted-foreground bg-card hover:bg-muted"
+                } font-medium py-2 px-5 rounded-full text-sm hover:border-gray-300 h-auto`}
               >
                 {cuisine}
-              </button>
+              </Button>
             )
           )}
         </div>

@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { Heart, Star, Clock, Flame, Share2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface RecipeCardProps {
   title: string;
@@ -53,9 +54,13 @@ export function RecipeCard({
         </div>
 
         {/* Like Button */}
-        <button className="absolute top-3 right-3 p-2 rounded-full bg-white/20 backdrop-blur-md hover:bg-primary transition-colors text-white hover:text-primary-foreground z-10">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute top-3 right-3 rounded-full bg-white/20 backdrop-blur-md hover:bg-primary transition-colors text-white hover:text-primary-foreground z-10 w-10 h-10"
+        >
           <Heart className="w-5 h-5" />
-        </button>
+        </Button>
       </div>
 
       <div className="p-4 flex flex-col gap-2">
@@ -94,9 +99,13 @@ export function RecipeCard({
           </div>
 
           <div className="flex gap-2">
-            <button className="text-foreground hover:text-primary transition-colors">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hover:text-primary transition-colors"
+            >
               <Share2 className="w-5 h-5" />
-            </button>
+            </Button>
           </div>
         </div>
       </div>

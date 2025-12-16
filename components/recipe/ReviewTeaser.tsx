@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface ReviewTeaserProps {
   reviews: Review[];
@@ -20,9 +21,13 @@ export function ReviewTeaser({ reviews, totalReviews }: ReviewTeaserProps) {
         <h2 className="text-xl font-bold text-foreground">
           Reviews ({totalReviews})
         </h2>
-        <button className="text-primary font-bold text-sm hover:underline">
+        <Button
+          variant="link"
+          size="sm"
+          className="text-primary font-bold px-0"
+        >
           See all
-        </button>
+        </Button>
       </div>
       <div className="bg-card p-4 rounded-xl border border-border">
         <div className="flex items-start gap-3">
