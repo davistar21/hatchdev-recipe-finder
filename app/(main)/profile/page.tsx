@@ -4,7 +4,6 @@ import React from "react";
 import { ProfileHeader } from "@/components/profile/ProfileHeader";
 import { ProfileStats } from "@/components/profile/ProfileStats";
 import { ProfileGrid } from "@/components/profile/ProfileGrid";
-import { BottomNav } from "@/components/feed/BottomNav";
 import { Button } from "@/components/ui/button";
 import { Settings } from "lucide-react";
 
@@ -31,8 +30,6 @@ export default function ProfilePage() {
           <div className="h-6"></div> {/* Spacer */}
           <ProfileGrid />
         </main>
-
-        <BottomNav />
       </div>
     </div>
   );

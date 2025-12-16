@@ -6,7 +6,6 @@ import { FeedHeader } from "./FeedHeader";
 import { SearchBar } from "./SearchBar";
 import { CategoryFilter } from "./CategoryFilter";
 import { RecipeCard } from "./RecipeCard";
-import { BottomNav } from "./BottomNav";
 import { MOCK_RECIPES } from "@/lib/mockData";
 import { Leaf } from "lucide-react";
 
@@ -42,8 +41,6 @@ export function RecipeFeed() {
 
           <div className="h-8"></div>
         </div>
-
-        <BottomNav />
       </div>
     </div>
   );
