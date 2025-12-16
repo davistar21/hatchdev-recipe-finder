@@ -1,0 +1,27 @@
+import { create } from "zustand";
+
+interface RecipeStore {
+  recipes: Recipe[];
+  activeRecipe: Recipe | null;
+  isLoading: boolean;
+  error: string | null;
+  fetchRecipes: () => Promise<void>; // Skeleton
+  fetchRecipeById: (id: string) => Promise<void>; // Skeleton
+  createRecipe: (data: Partial<Recipe>) => Promise<void>; // Skeleton
+}
+
+export const useRecipeStore = create<RecipeStore>((set) => ({
+  recipes: [],
+  activeRecipe: null,
+  isLoading: false,
+  error: null,
+  fetchRecipes: async () => {
+    /* To be implemented by Tomilade */
+  },
+  fetchRecipeById: async () => {
+    /* To be implemented by Tomilade */
+  },
+  createRecipe: async () => {
+    /* To be implemented by Tomilade */
+  },
+}));
