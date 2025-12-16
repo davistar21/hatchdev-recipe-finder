@@ -17,11 +17,40 @@ export const useRecipeStore = create<RecipeStore>((set) => ({
   error: null,
   fetchRecipes: async () => {
     /* To be implemented by Tomilade */
+     set({ isLoading: true, error: null });
+
+    try {
+      const response = await fetch("");
+      const data = await response.json();
+
+      set({ recipes: data, isLoading: false });
+    } catch (error) {
+      set({ error: "Failed to fetch recipes", isLoading: false });
+    }
   },
   fetchRecipeById: async () => {
     /* To be implemented by Tomilade */
   },
-  createRecipe: async () => {
+  createRecipe: async (newRecipe) => {
     /* To be implemented by Tomilade */
+        set({ isLoading: true, error: null });
+
+    try {
+      const response = await fetch("/api/recipes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newRecipe),
+      });
+
+      const createdRecipe = await response.json();
+
+      set((state) => ({
+        recipes: [...state.recipes, createdRecipe],
+        isLoading: false,
+      }));
+    } catch (error) {
+      set({ error: "Failed to create recipe", isLoading: false });
+    }
+
   },
 }));
