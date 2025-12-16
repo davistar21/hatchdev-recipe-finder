@@ -4,9 +4,19 @@ import React, { useState } from "react";
 import { Heart, Bookmark, Star } from "lucide-react";
 import { motion } from "framer-motion";
 
-export function RecipeActionBar() {
+interface RecipeActionBarProps {
+  likes?: string;
+  rating: number;
+  reviewsCount: number;
+}
+
+export function RecipeActionBar({
+  likes = "1.2k",
+  rating,
+  reviewsCount,
+}: RecipeActionBarProps) {
   const [liked, setLiked] = useState(false);
-  const [saved, setSaved] = useState(true);
+  const [saved, setSaved] = useState(false);
 
   return (
     <motion.div
@@ -29,7 +39,7 @@ export function RecipeActionBar() {
           />
         </motion.div>
         <span className="text-xs font-semibold text-muted-foreground">
-          1.2k
+          {likes}
         </span>
       </button>
 
@@ -56,7 +66,7 @@ export function RecipeActionBar() {
       <button className="flex-1 flex flex-col items-center justify-center gap-1 py-3 rounded-xl hover:bg-muted transition-colors group">
         <Star className="w-6 h-6 text-muted-foreground group-hover:text-yellow-500 transition-colors" />
         <span className="text-xs font-semibold text-muted-foreground">
-          4.8 (124)
+          {rating} ({reviewsCount})
         </span>
       </button>
     </motion.div>

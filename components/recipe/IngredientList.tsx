@@ -4,21 +4,18 @@ import React from "react";
 import { ShoppingBasket, ArrowRight, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 
-const INGREDIENTS = [
-  { name: "Ripe Avocados", amount: "2 pcs" },
-  { name: "Whole Wheat Pasta", amount: "200g" },
-  { name: "Fresh Lime Juice", amount: "2 tbsp" },
-  { name: "Garlic Cloves", amount: "2 pcs" },
-  { name: "Olive Oil", amount: "1 tbsp" },
-];
+interface IngredientListProps {
+  ingredients: Ingredient[];
+  servings: number;
+}
 
-export function IngredientList() {
+export function IngredientList({ ingredients, servings }: IngredientListProps) {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-bold text-foreground">Ingredients</h2>
         <button className="text-sm font-bold text-muted-foreground bg-muted px-3 py-1 rounded-lg">
-          2 Servings
+          {servings} Servings
         </button>
       </div>
 
@@ -42,7 +39,7 @@ export function IngredientList() {
 
       {/* Ingredients List */}
       <div className="flex flex-col gap-3">
-        {INGREDIENTS.map((item, index) => (
+        {ingredients.map((item, index) => (
           <motion.label
             key={index}
             initial={{ opacity: 0, x: -10 }}
@@ -64,9 +61,11 @@ export function IngredientList() {
         ))}
       </div>
 
-      <button className="mt-2 text-sm font-bold text-muted-foreground flex items-center justify-center gap-1 hover:text-foreground transition-colors">
-        Show 3 more items <ChevronDown className="w-4 h-4" />
-      </button>
+      {ingredients.length > 5 && (
+        <button className="mt-2 text-sm font-bold text-muted-foreground flex items-center justify-center gap-1 hover:text-foreground transition-colors">
+          Show more items <ChevronDown className="w-4 h-4" />
+        </button>
+      )}
     </div>
   );
 }
