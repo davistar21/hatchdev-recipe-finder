@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Noto_Sans } from "next/font/google";
 import "./globals.css";
+import { MainLayout } from "@/components/layout/MainLayout";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-display",
@@ -28,7 +29,7 @@ export default function RootLayout({
       <body
         className={`${plusJakartaSans.variable} ${notoSans.className} antialiased bg-background-light dark:bg-background-dark text-[#151811] dark:text-white font-body`}
       >
-        {children}
+        <MainLayout>{children}</MainLayout>
       </body>
     </html>
   );
