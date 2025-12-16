@@ -166,7 +166,7 @@ We will use **Zustand** for global state. Create the following stores in `lib/st
 
 ## Backend Endpoints Reference
 
-(Refer to `implementation.md` for full list)
+(Refer to the API documentation for full list)
 
 - Auth: `/auth/*`
 - Recipes: `/recipes/*`
