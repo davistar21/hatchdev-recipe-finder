@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recipe Social Welcome Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#92ec13",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#1a2210",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#151811] dark:text-white font-display">
+<div class="relative flex h-screen w-full flex-col overflow-hidden max-w-md mx-auto shadow-2xl bg-background-light dark:bg-background-dark">
+<!-- Top Section: Imagery & Carousel -->
+<div class="flex-1 relative flex flex-col">
+<!-- Main Hero Image -->
+<div class="relative h-[55%] w-full overflow-hidden rounded-b-[2rem]">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Top down view of a colorful healthy salad bowl with fresh ingredients" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbc2GV_4GHy3QW5d_OnHieZD3IEZoEB1gPyvC7e6r89a_k1VgkNqvwt9lX8YdSOokSBi5RrXnNESNyxpSCwWtZBl-KzU2gsXk0oGjP7-jyM-AVnmL2ws_Tpltp5DKrr2x7y6qmoETwdICvA1GLJ3OUDVlNcfqwJls7YHanBgwj4T6wdH4LJnF-zHj-InODCRN-l-mBxTfhZR1XKxTbM6kmDUpN9iOgatzY7_dRoi0eGFZcWp_LoEZ9pc7Ve1F0QgnasvFhxLqsZ14");'>
+</div>
+<!-- Gradient Overlay for text readability if needed later, or just aesthetic -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<!-- Logo / Brand Badge -->
+<div class="absolute top-12 left-1/2 -translate-x-1/2 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl font-bold">restaurant_menu</span>
+<span class="text-sm font-bold tracking-wide uppercase text-black dark:text-white">Crave</span>
+</div>
+</div>
+<!-- Content Container -->
+<div class="flex-1 flex flex-col justify-between pt-6 pb-2">
+<!-- Value Prop Carousel / Text -->
+<div class="flex flex-col items-center px-6 text-center">
+<h1 class="text-[#151811] dark:text-white tracking-tight text-[32px] font-extrabold leading-tight pb-3">
+                        Taste the World
+                    </h1>
+<p class="text-[#151811]/70 dark:text-white/70 text-base font-medium leading-relaxed max-w-[280px]">
+                        Join the largest community of home cooks and discover recipes daily.
+                    </p>
+<!-- Page Indicators -->
+<div class="flex flex-row items-center justify-center gap-2 pt-6 pb-4">
+<div class="h-2 w-8 rounded-full bg-primary transition-all duration-300"></div>
+<div class="h-2 w-2 rounded-full bg-[#e1e6db] dark:bg-white/20 transition-all duration-300"></div>
+<div class="h-2 w-2 rounded-full bg-[#e1e6db] dark:bg-white/20 transition-all duration-300"></div>
+</div>
+<!-- Mini Feature Preview (Story Carousel style) -->
+<div class="w-full pt-4 overflow-x-auto hide-scrollbar pb-2">
+<div class="flex flex-row items-start justify-center gap-4 min-w-max px-2">
+<div class="flex flex-col items-center gap-2 w-20">
+<div class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-full ring-2 ring-primary p-0.5" data-alt="Close up of avocado toast" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCel45LveNqcboQc5M2wzPT_oMEAWDwVrqG-T7Ng87IMAYM9hDPsOuIeYEey7989PtnIbV8m1IWLHy3bXdeliSjlU7F2wrvoxIaDhoCGP9FQ0mvhbz_qoH5qDEM5t5nMudzki1DA-Q0F2L4ODVUZfnT4zYPIpm0dNIJL25weebBZIJwAnKsjA8sxp1HPUvRlT_IpJdZmpoRuVa9tGOCuNJz5umr23TisWwxFvlnAOHOyeIfUboSoiN4rjYizP8tz6Vr7HTzIFRfbi4");'>
+<div class="w-full h-full rounded-full border-2 border-white dark:border-background-dark"></div>
+</div>
+<span class="text-xs font-semibold text-center opacity-80">Discover</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-20">
+<div class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-full ring-2 ring-transparent p-0.5 grayscale hover:grayscale-0 transition-all" data-alt="Chef plating a gourmet dish" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAc8oD8pNd__d416UTZf_hJa9vNTDZvi6dyJew-lAxw4H_u9r-oSN3Jloy3t_dle1V2BK4JluC3FoVSBaZsbFnMfjjAYKAHifuLGfwE7YWD-F3N8VFpVwuSpAP5lg04zSUM3aJrLBEyFviAZMJp1m5-OBOT3nXr5tIE1PbuKZ_VFSCUKilBvbSHtJg2O5v9_jnhL8CGVuknAFdr46zyHahFbFMhx-IkvHrueyUGF5DYA0bZENPKC5VTEdpZYZKK00BWWSa03SQjTtk");'></div>
+<span class="text-xs font-semibold text-center opacity-50">Cook</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-20">
+<div class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-full ring-2 ring-transparent p-0.5 grayscale hover:grayscale-0 transition-all" data-alt="Friends eating dinner together" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBPjkbm19ya5Jk131D_PrmLf3byZ-UxC1juXRou7fRoEtj5MeQul4zL0MlvtLXg-KJQT_mgVZzcPCbkW1Jia5N0HPLgUZDuFqYRURDIMF_37J7H5rWUmCnrIz_BC9TwXUV7JpZmn1FNhxxE2S-CxVT2xpHfUnf79rlIRzLepbADOj5lapmS4d9h1G8_6eMQp_heq7pvbIWWKK0WyoFcY9seDJCVb7KbczzpToOWWxLGEzvaAUVnadKwnSuqJQW72IQlJ0DrjK8WxWg");'></div>
+<span class="text-xs font-semibold text-center opacity-50">Share</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Actions Section -->
+<div class="w-full px-6 pb-8 pt-2 bg-background-light dark:bg-background-dark">
+<div class="flex flex-col gap-3">
+<!-- Primary CTA -->
+<button class="flex w-full cursor-pointer items-center justify-center rounded-xl h-14 px-5 bg-primary hover:bg-[#82d611] transition-colors text-[#1a2210] text-base font-bold tracking-wide shadow-lg shadow-primary/20">
+<span class="truncate">Create Account</span>
+</button>
+<!-- Secondary CTA -->
+<button class="flex w-full cursor-pointer items-center justify-center rounded-xl h-14 px-5 bg-transparent border border-[#151811]/10 dark:border-white/20 text-[#151811] dark:text-white text-base font-bold tracking-wide hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+<span class="truncate">Log In</span>
+</button>
+</div>
+<!-- Social Login Divider -->
+<div class="relative py-6">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-gray-200 dark:border-white/10"></div>
+</div>
+<div class="relative flex justify-center text-sm">
+<span class="px-2 bg-background-light dark:bg-background-dark text-gray-500 text-xs">Or continue with</span>
+</div>
+</div>
+<!-- Social Icons -->
+<div class="flex justify-center gap-6">
+<button class="h-12 w-12 flex items-center justify-center rounded-full bg-white dark:bg-white/10 border border-gray-200 dark:border-transparent shadow-sm hover:scale-105 transition-transform">
+<img alt="Google" class="h-6 w-6" data-alt="Google logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsUNrqbIdwlF38Y-ARTjLp6mcVWcmal9x0PhOzZA7hvAcDCRBRNEu5hfh19M3i4Q0gIFt71QmQjQHOHFajiMaOsRyPiLzfVIZ-s59LkMpUyg5RiZ9vmUmy3gP3m4qDa2laqDLGeUof7f8HBk6gDj_IQZNXw8J6x6wf0G8HCuGvmfjFXLBSHioXPXQYNZoff3a34nI-Uez9HpDTnbVw7fixVrzytftX812xvR-nVLnPFI7m7oZ9n7-5UPaseEXJ_uBnoRJGh_927kE"/>
+</button>
+<button class="h-12 w-12 flex items-center justify-center rounded-full bg-white dark:bg-white/10 border border-gray-200 dark:border-transparent shadow-sm hover:scale-105 transition-transform">
+<img alt="Apple" class="h-6 w-6 dark:invert" data-alt="Apple logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC42zY1vStDi_gFahJR4PIZ2xO_41B5HGvXFnvoaOz0WsxrXlt3T8CydKx9ZAij7UlaHBpB7b6aCkIZNBuhc3yAHEX9q2zjRNa2y--hXiH_Q9DfxxFjHmalEULBMpG5v1jVyKh4Wl5C3dzdpk8cgQVdeQbobRrliot-fTYe1dpTNlqO8CL_mRwa1PrOL4uLxd18q6DkbUm2RflacqeYO4prjLbg96Y96w5NNRZPOWkPGZOcMCMNZPP4KmNiUarNp5hzac2lsd-Np04"/>
+</button>
+<button class="h-12 w-12 flex items-center justify-center rounded-full bg-white dark:bg-white/10 border border-gray-200 dark:border-transparent shadow-sm hover:scale-105 transition-transform">
+<img alt="Facebook" class="h-6 w-6" data-alt="Facebook logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATTX5HFxY9UILjmRhiMJaXlvCYIWjyZa_am-HPiNZYEHyCXjfgiTQb6OoyH4WmgvsCOfD5_fybWGtsAy4DfglH4FstGQFu1jzBSOC9EpmpJqMvNFijHLd8pOGF7FN-DVucIDohLr34aegAmM0_CQq6pOzCAnjV_AUAXxFGrSuAcn3ySEaXvxrrp2F7qwDdYcMyUuSnM2uRbdCe4NjnBj4tf4NmramD6OKEwhdpioe6LPzIAS2BtUaPCUcipxzMjZuRwkx9uAwgcro"/>
+</button>
+</div>
+<!-- Terms -->
+<p class="mt-6 text-center text-[10px] text-gray-400 dark:text-gray-500 leading-tight px-8">
+                By continuing, you agree to our 
+                <a class="underline decoration-gray-400 hover:text-primary" href="#">Terms of Service</a> 
+                and 
+                <a class="underline decoration-gray-400 hover:text-primary" href="#">Privacy Policy</a>.
+            </p>
+</div>
+</div>
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Authentication</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#92ec13",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#1a2210",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hide for cleaner mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col items-center justify-start font-display text-zinc-900 dark:text-zinc-100 antialiased overflow-x-hidden transition-colors duration-300">
+<!-- Mobile Container -->
+<div class="w-full max-w-md bg-background-light dark:bg-background-dark flex flex-col min-h-screen relative shadow-2xl overflow-hidden">
+<!-- Header Image Section -->
+<div class="relative w-full h-72 @container group/header">
+<div class="absolute inset-0 bg-gradient-to-t from-background-light dark:from-background-dark via-transparent to-black/30 z-10"></div>
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-700 hover:scale-105" data-alt="Top down view of a fresh healthy salad bowl with avocado and greens" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuChxByArG9HRg2hEmcAMS1x7ofoUn7LR_UNjhzrbvpD4UiW3jCoa8ZuhJpHvU79ZYLdGq14RLhajBo8WcAtw3ff1Gfpss-zj52WNBIjxt4a4EFdTGb-q9X9ukOcCMiWZ99xVXQWZB30utV9SgJzAUinFAmsm6hv2nHtIFj6Y9xeb68OkBsfIyT303WflCQu3oA_WvpNeW614vbZvpdqMLzZFAEnEYfOiRhYBYCw1c6aHFVPgleEChfsxknTHQabpEPpyvtuhgereuE");'>
+</div>
+<!-- Logo/Brand Overlay -->
+<div class="absolute top-6 left-6 z-20 flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-black text-[20px] font-bold">restaurant_menu</span>
+</div>
+<span class="text-white font-bold text-lg tracking-wide drop-shadow-md">RecipeSocial</span>
+</div>
+</div>
+<!-- Main Content Area -->
+<div class="flex-1 px-6 -mt-8 relative z-20">
+<!-- Headline -->
+<div class="bg-background-light dark:bg-background-dark pt-6 pb-2 rounded-t-3xl">
+<h1 class="text-zinc-900 dark:text-white tracking-tight text-[32px] font-extrabold leading-[1.1] mb-6">
+                    Discover your next <br/>
+<span class="text-primary decoration-zinc-900 underline decoration-2 underline-offset-4">favorite meal.</span>
+</h1>
+<!-- Segmented Control (Tabs) -->
+<div class="flex p-1 bg-zinc-200 dark:bg-zinc-800 rounded-xl mb-8">
+<label class="flex-1 cursor-pointer">
+<input checked="" class="peer sr-only" name="auth_mode" type="radio" value="login"/>
+<div class="flex items-center justify-center py-2.5 text-sm font-semibold rounded-lg text-zinc-500 transition-all duration-200 peer-checked:bg-primary peer-checked:text-black peer-checked:shadow-sm">
+                            Log In
+                        </div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="peer sr-only" name="auth_mode" type="radio" value="signup"/>
+<div class="flex items-center justify-center py-2.5 text-sm font-semibold rounded-lg text-zinc-500 transition-all duration-200 peer-checked:bg-primary peer-checked:text-black peer-checked:shadow-sm">
+                            Sign Up
+                        </div>
+</label>
+</div>
+<!-- Form Inputs -->
+<form class="flex flex-col gap-5">
+<!-- Email Field -->
+<div class="group/input">
+<label class="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5 ml-1">Email Address</label>
+<div class="flex items-center w-full rounded-xl bg-white dark:bg-zinc-800 border-2 border-transparent focus-within:border-primary/50 transition-colors shadow-sm overflow-hidden h-14">
+<input class="w-full bg-transparent border-none text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:ring-0 px-4 h-full text-base" placeholder="hello@example.com" type="email"/>
+<div class="pr-4 text-zinc-400 dark:text-zinc-500 group-focus-within/input:text-primary transition-colors">
+<span class="material-symbols-outlined">mail</span>
+</div>
+</div>
+</div>
+<!-- Password Field -->
+<div class="group/input">
+<label class="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5 ml-1">Password</label>
+<div class="flex items-center w-full rounded-xl bg-white dark:bg-zinc-800 border-2 border-transparent focus-within:border-primary/50 transition-colors shadow-sm overflow-hidden h-14">
+<input class="w-full bg-transparent border-none text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:ring-0 px-4 h-full text-base" placeholder="••••••••" type="password"/>
+<button class="pr-4 text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors focus:outline-none" type="button">
+<span class="material-symbols-outlined">visibility_off</span>
+</button>
+</div>
+</div>
+<!-- Forgot Password Link -->
+<div class="flex justify-end">
+<a class="text-sm font-medium text-primary hover:text-primary/80 transition-colors" href="#">Forgot Password?</a>
+</div>
+<!-- Primary Action Button -->
+<button class="w-full bg-primary hover:bg-[#86db11] active:scale-[0.98] transition-all h-14 rounded-xl flex items-center justify-center shadow-[0_4px_14px_rgba(146,236,19,0.4)] mt-2" type="button">
+<span class="text-black font-bold text-lg">Get Cooking</span>
+<span class="material-symbols-outlined ml-2 text-black font-bold">arrow_forward</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="relative flex py-8 items-center">
+<div class="flex-grow border-t border-zinc-200 dark:border-zinc-700"></div>
+<span class="flex-shrink-0 mx-4 text-zinc-400 dark:text-zinc-500 text-xs font-medium uppercase tracking-wider">Or continue with</span>
+<div class="flex-grow border-t border-zinc-200 dark:border-zinc-700"></div>
+</div>
+<!-- Social Login Buttons -->
+<div class="grid grid-cols-3 gap-4 mb-8">
+<!-- Google -->
+<button class="flex items-center justify-center h-12 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors shadow-sm group">
+<!-- Simulated Google G -->
+<div class="w-5 h-5 flex items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-600 group-hover:bg-white">
+<span class="font-bold text-sm text-zinc-800 dark:text-zinc-200">G</span>
+</div>
+</button>
+<!-- Apple -->
+<button class="flex items-center justify-center h-12 rounded-lg bg-black dark:bg-white border border-transparent hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-white dark:text-black text-[20px]">star</span> <!-- Placeholder for Apple logo -->
+</button>
+<!-- Facebook -->
+<button class="flex items-center justify-center h-12 rounded-lg bg-[#1877F2] border border-transparent hover:bg-[#166fe5] transition-colors shadow-sm">
+<span class="font-bold text-lg text-white">f</span>
+</button>
+</div>
+<!-- Footer Terms -->
+<p class="text-center text-xs text-zinc-400 dark:text-zinc-500 pb-8 px-4 leading-relaxed">
+                    By continuing, you agree to RecipeSocial's <br/>
+<a class="underline hover:text-zinc-600 dark:hover:text-zinc-300" href="#">Terms of Service</a> and <a class="underline hover:text-zinc-600 dark:hover:text-zinc-300" href="#">Privacy Policy</a>.
+                </p>
+</div>
+</div>
+</div>
+</body></html>
