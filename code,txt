@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Profile - Recipe App</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#92ec13",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#1a2210",
+                        "text-main": "#151811",
+                        "text-secondary": "#798961",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-main dark:text-white antialiased overflow-x-hidden">
+<div class="relative flex h-full min-h-screen w-full flex-col max-w-md mx-auto bg-white dark:bg-background-dark shadow-xl">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-10 flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="w-12"></div> <!-- Spacer for centering -->
+<h2 class="text-text-main dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Profile</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center rounded-full h-10 w-10 text-text-main dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto">
+<!-- ProfileHeader -->
+<div class="flex p-4 flex-col gap-6 pt-6">
+<div class="flex w-full flex-col gap-4 items-center">
+<div class="flex gap-4 flex-col items-center">
+<div class="relative">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-28 w-28 border-4 border-primary shadow-sm" data-alt="Portrait of a smiling woman with glasses" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfdOd0IJ_KscmBzMr-XAOIyFlB5oUfBw3gH9HKrscNLdlSZUcJdteDKZYNhYwc98DJsk_Ex9MfehWUotp8egqR6LvzEUkUYBEleCBxRUYtMRKe04P5_SK3SsWTvftNGiCXtIAXDauKnSiSrNIhubTMnO4VsBLg1_D8_pkz790yV_GUt13AtpAAYWnbdYcL6_wZfQ41m7R3yrMnjLAtByr594KKjEl3Kct8S1uhLnnZXudJzkXn5--qZeRwqtR_MWD6e00XPILy4aI");'>
+</div>
+<!-- Verification Badge optional visual flare -->
+<div class="absolute bottom-1 right-1 bg-primary text-background-dark rounded-full p-1 border-2 border-white dark:border-background-dark flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center gap-1">
+<p class="text-text-main dark:text-white text-2xl font-bold leading-tight tracking-tight text-center">Julia Childish</p>
+<p class="text-text-secondary dark:text-gray-400 text-sm font-medium leading-normal text-center max-w-[280px]">Home cook obsessed with sourdough and spicy noodles. 🍜🍞</p>
+</div>
+</div>
+</div>
+<!-- ProfileStats -->
+<div class="flex justify-between px-2 gap-2">
+<div class="flex flex-1 flex-col gap-0.5 items-center text-center">
+<p class="text-text-main dark:text-white text-xl font-bold leading-tight">42</p>
+<p class="text-text-secondary dark:text-gray-400 text-xs font-medium">Recipes</p>
+</div>
+<div class="w-px bg-gray-200 dark:bg-gray-700 h-8 self-center"></div>
+<div class="flex flex-1 flex-col gap-0.5 items-center text-center">
+<p class="text-text-main dark:text-white text-xl font-bold leading-tight">1.2k</p>
+<p class="text-text-secondary dark:text-gray-400 text-xs font-medium">Followers</p>
+</div>
+<div class="w-px bg-gray-200 dark:bg-gray-700 h-8 self-center"></div>
+<div class="flex flex-1 flex-col gap-0.5 items-center text-center">
+<p class="text-text-main dark:text-white text-xl font-bold leading-tight">150</p>
+<p class="text-text-secondary dark:text-gray-400 text-xs font-medium">Following</p>
+</div>
+</div>
+<!-- Edit Profile Button -->
+<button class="flex w-full cursor-pointer items-center justify-center rounded-lg h-11 px-4 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-text-main dark:text-white text-sm font-bold shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                    Edit Profile
+                </button>
+</div>
+<!-- Tabs -->
+<div class="sticky top-0 z-20 bg-white dark:bg-background-dark shadow-sm">
+<div class="flex border-b border-gray-100 dark:border-gray-800 px-4 justify-between">
+<button class="group flex flex-col items-center justify-center border-b-[3px] border-b-primary text-text-main dark:text-white pb-3 pt-4 flex-1 transition-all">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] filled">grid_view</span>
+<p class="text-sm font-bold tracking-[0.015em]">Created</p>
+</div>
+</button>
+<button class="group flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-text-secondary dark:text-gray-500 pb-3 pt-4 flex-1 hover:text-text-main dark:hover:text-gray-300 transition-all">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+<p class="text-sm font-bold tracking-[0.015em]">Saved</p>
+</div>
+</button>
+</div>
+</div>
+<!-- ImageGrid -->
+<div class="grid grid-cols-2 gap-3 p-4 pb-24">
+<!-- Card 1 -->
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5]">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Close up of a bowl of spicy miso ramen with egg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAdCBiASKdrVCDIW14CEzz1lS_WB9dRglAzhCZXELBQ1DHij-6md_M-ulAwKiT93P4VRnsC-a7K_eIdeMwzyJH5T0zpMHP97aEQepY9ipT7QsHMk1zH4UMANihBUYuhbGn7gXf5O7-3TZdImkcTxm3kUHvBmb4Bz358NkeSk_4or_E8nbRM2-aIztEiEsAruyUcYWO9WyWNaG84xb7ErdF1WIsUS99BTU6DkNvMPNu_E1w7603-H1VZvpEIUW08D5rnHLNWSWFqXec");'></div>
+<div class="absolute top-2 right-2 bg-black/40 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-white text-[12px]">schedule</span>
+<span class="text-white text-[10px] font-bold">30m</span>
+</div>
+</div>
+<div>
+<p class="text-text-main dark:text-white text-sm font-bold leading-tight mb-0.5">Spicy Miso Ramen</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">favorite</span>
+<p class="text-text-secondary dark:text-gray-400 text-xs">128</p>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5]">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Freshly baked sourdough bread on a wooden board" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAn0IYQd5MxCZIfHpmDMB45jq4PnI_sx1LhIZaOLP9Tq4gSN85G0WyFCdWMYr4aYmoF3DZR9GDe6THsBXpyG_aPH9jL2kEWkaw7p3BN2GpO0UYzWgsV3tJYgwK26YVSRKBT1ZZFwh8kNjlRyErr0wYy2JBt5aZYS6M9eRCsKPxoq-DHl6RF0VeubpU0xRhy6BTymo5Ufg9d7zlZ-Xw1IPP0ueL6aneeubuwUrnSkspCg3vxz9tv3IAJ3PHj7vNE6Cybxu1n342Ovek");'></div>
+<div class="absolute top-2 right-2 bg-black/40 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-white text-[12px]">schedule</span>
+<span class="text-white text-[10px] font-bold">24h</span>
+</div>
+</div>
+<div>
+<p class="text-text-main dark:text-white text-sm font-bold leading-tight mb-0.5">Sourdough Starter</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">favorite</span>
+<p class="text-text-secondary dark:text-gray-400 text-xs">2.4k</p>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5]">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Avocado toast topped with sesame seeds and radish" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD5PlvyfRZ1nlbSZSupBPNlNsDLB2RqqJYdCTuVEVY8qgm-slwcGARnzCzFEO_sqrFZwCN20qvSAey4wyoOYKivgj3WfyZEsek1CwVhMJNG8IZv4W4HtUGgVMwxFogqV6-D2s1tB8yxM6GV893B2aHx0jqH0Lo7ppcrq8vTAqkNn8m4YEyh8-1bAHR8rLQ81gQl7ESVYX7GP_DJrHPHd2cIdnyFSi44dEl54H1ee4mUNgB3-QDRVnGgKxUzKgvHtCBp515hLVllgBA");'></div>
+<div class="absolute top-2 right-2 bg-black/40 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-white text-[12px]">schedule</span>
+<span class="text-white text-[10px] font-bold">15m</span>
+</div>
+</div>
+<div>
+<p class="text-text-main dark:text-white text-sm font-bold leading-tight mb-0.5">Avocado Twist</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">favorite</span>
+<p class="text-text-secondary dark:text-gray-400 text-xs">842</p>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5]">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Colorful berry smoothie bowl with granola" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlrWqIeMsnB3myxRvSP39_iH_8GzOCE1d-Yoja8tGn1KmNhu45nW_2MwQuHLnqgysTMue6Sy6tVGyBV6VvBqrl_oo2XzIh6_8f2cwB4_aT89czENrZOBzwrEQlNITMLYsE4ras0TqgFR8gMQF4tA7htoVkrgCxCgHWyqBfz-1FawxywtaisAe0vwjEtBfmQe5tJcbUfWM-ojOQs_ScINIkTSC4Pt-4Si0uTxhpQBJMV86PmdCMmzZvNr2d_tmMIaMpRm-CXiAvexg");'></div>
+<div class="absolute top-2 right-2 bg-black/40 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-white text-[12px]">schedule</span>
+<span class="text-white text-[10px] font-bold">10m</span>
+</div>
+</div>
+<div>
+<p class="text-text-main dark:text-white text-sm font-bold leading-tight mb-0.5">Berry Bowl</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">favorite</span>
+<p class="text-text-secondary dark:text-gray-400 text-xs">550</p>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5]">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Stack of pancakes with syrup drizzle" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCO7BiX22B5VZOfHTEwxUSvU8DGHZ-19azQ-vHR0M4BB77YiMFt5TkvYTHFrFJ4g_1ovGBL_DNw71YI-Nx-HbVXqG46N-18Q4p3WZ4BYnhY_PLa49bZfad-eNiBR8xkHIel-oH4KuEfDRI-VozTUUGJwkaa6Yw1mUiJs9ouj6hItzTg68zL5vbKcX9i330htuE5uzmW7rglIaYWUQLOYjRWx4WQ44uTeab_dBfy2pavbD43xPbWeRH1PXjTDiVAEkzpfnrhqkBY80o");'></div>
+<div class="absolute top-2 right-2 bg-black/40 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-white text-[12px]">schedule</span>
+<span class="text-white text-[10px] font-bold">45m</span>
+</div>
+</div>
+<div>
+<p class="text-text-main dark:text-white text-sm font-bold leading-tight mb-0.5">Fluffy Pancakes</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">favorite</span>
+<p class="text-text-secondary dark:text-gray-400 text-xs">3.1k</p>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5]">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Green salad with grilled chicken and dressing" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBxT8hYQTDXJDrLPNqsD1R9I5jKfq94KBhw3GyET71pP9k0HnA_ebffR2xoZ4PI7mDtiLCgxKR6_C7KbqsBjMqv8cCk_1EziyytPlLPVXPKVXP0qIKPaiWYo4acorTWzuyCAUhOhorCfchG8BHY_h-SAJHC5nRH8iXbKufWu7yrCqRYti0dsBWlf0DvKqnYCITUVUmx2T2atmSlxH1vUZ-EK1qmoI2qKCiyPeDqQiABxU3cC1BUUDPdor9hQXQ2DOKg-SBRBFO-kLc");'></div>
+<div class="absolute top-2 right-2 bg-black/40 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-white text-[12px]">schedule</span>
+<span class="text-white text-[10px] font-bold">20m</span>
+</div>
+</div>
+<div>
+<p class="text-text-main dark:text-white text-sm font-bold leading-tight mb-0.5">Summer Salad</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">favorite</span>
+<p class="text-text-secondary dark:text-gray-400 text-xs">420</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-background-dark border-t border-gray-100 dark:border-gray-800 pb-safe pt-2 px-6 h-20 max-w-md mx-auto">
+<div class="flex justify-between items-center h-full pb-2">
+<button class="flex flex-col items-center justify-center gap-1 text-gray-400 dark:text-gray-500 hover:text-text-main dark:hover:text-white transition-colors w-16">
+<span class="material-symbols-outlined text-[26px]">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-gray-400 dark:text-gray-500 hover:text-text-main dark:hover:text-white transition-colors w-16">
+<span class="material-symbols-outlined text-[26px]">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</button>
+<!-- Center Add Button -->
+<button class="flex items-center justify-center bg-primary text-background-dark rounded-full h-12 w-12 shadow-lg -mt-4 border-4 border-white dark:border-background-dark transition-transform hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-gray-400 dark:text-gray-500 hover:text-text-main dark:hover:text-white transition-colors w-16">
+<span class="material-symbols-outlined text-[26px]">notifications</span>
+<span class="text-[10px] font-medium">Alerts</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-primary w-16">
+<span class="material-symbols-outlined text-[26px] filled">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

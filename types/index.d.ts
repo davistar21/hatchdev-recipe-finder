@@ -1,0 +1,47 @@
+export {};
+
+declare global {
+  interface Chef {
+    id: string;
+    name: string;
+    avatar: string;
+    isPro: boolean;
+  }
+
+  interface Ingredient {
+    name: string;
+    amount: string;
+  }
+
+  interface Instruction {
+    step: number;
+    title: string;
+    description: string;
+    image?: string;
+  }
+
+  interface Review {
+    id: string;
+    userName: string;
+    userAvatar: string;
+    rating: number;
+    comment: string;
+    date: string;
+  }
+
+  interface Recipe {
+    id: string;
+    title: string;
+    image: string;
+    chef: Chef;
+    rating: number;
+    reviewsCount: number;
+    time: string;
+    calories: string;
+    servings: number;
+    ingredients: Ingredient[];
+    instructions: Instruction[];
+    reviews: Review[];
+    isTopRated?: boolean;
+  }
+}
