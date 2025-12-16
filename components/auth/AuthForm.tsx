@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Utensils, Mail, EyeOff, ArrowRight } from "lucide-react";
 import { SocialLoginButtons } from "./SocialLoginButtons";
+import { Button } from "@/components/ui/button";
 
 interface AuthFormProps {
   mode: "login" | "signup";
@@ -100,12 +101,14 @@ export function AuthForm({ mode }: AuthFormProps) {
                   placeholder="••••••••"
                   className="w-full bg-transparent border-none text-foreground placeholder:text-muted-foreground focus:ring-0 px-4 h-full text-base outline-none"
                 />
-                <button
+                <Button
                   type="button"
-                  className="pr-4 text-muted-foreground hover:text-foreground transition-colors focus:outline-none"
+                  variant="ghost"
+                  size="icon"
+                  className="pr-4 text-muted-foreground hover:text-foreground transition-colors focus:outline-none hover:bg-transparent"
                 >
                   <EyeOff className="w-5 h-5" />
-                </button>
+                </Button>
               </div>
             </div>
 
@@ -122,15 +125,12 @@ export function AuthForm({ mode }: AuthFormProps) {
             )}
 
             {/* Primary Action Button */}
-            <button
-              type="button"
-              className="w-full bg-primary hover:bg-primary/90 active:scale-[0.98] transition-all h-14 rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 mt-2"
-            >
+            <Button className="w-full bg-primary hover:bg-primary/90 active:scale-[0.98] transition-all h-14 rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 mt-2">
               <span className="text-primary-foreground font-bold text-lg">
                 {mode === "login" ? "Log In" : "Get Cooking"}
               </span>
               <ArrowRight className="ml-2 text-primary-foreground font-bold w-5 h-5" />
-            </button>
+            </Button>
           </form>
 
           {/* Divider */}

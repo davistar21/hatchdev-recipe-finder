@@ -3,6 +3,7 @@
 import React from "react";
 import { GripVertical, X, Plus } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 export function IngredientEditor() {
   return (
@@ -32,22 +33,31 @@ export function IngredientEditor() {
             <div className="flex-1 text-foreground font-medium text-sm">
               <span className="font-bold mr-1">{item.amount}</span> {item.name}
             </div>
-            <button className="text-muted-foreground hover:text-red-500 transition-colors p-1">
-              <X className="w-5 h-5" />
-            </button>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hover:text-red-500 hover:bg-red-50 transition-colors w-7 h-7"
+            >
+              <X className="w-4 h-4" />
+            </Button>
           </motion.div>
         ))}
       </div>
       {/* Add New Ingredient */}
       <div className="flex gap-2 items-center">
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="flex-1 border-2 border-dashed border-primary/40 bg-primary/5 hover:bg-primary/10 rounded-xl py-3 flex items-center justify-center gap-2 text-primary font-bold text-sm transition-colors"
+        <Button
+          variant="outline"
+          className="flex-1 border-2 border-dashed border-primary/40 bg-primary/5 hover:bg-primary/10 rounded-xl py-6 flex items-center justify-center gap-2 text-primary font-bold text-sm transition-colors h-auto"
+          asChild
         >
-          <Plus className="w-5 h-5" />
-          Add Ingredient
-        </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <Plus className="w-5 h-5" />
+            Add Ingredient
+          </motion.button>
+        </Button>
       </div>
     </div>
   );

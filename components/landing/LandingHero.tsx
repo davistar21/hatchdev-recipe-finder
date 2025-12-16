@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, Star, ChefHat } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 export function LandingHero() {
@@ -34,19 +35,22 @@ export function LandingHero() {
             share your culinary masterpieces, and get inspired daily.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-            <Link
-              href="/signup"
-              className="w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground rounded-xl font-bold text-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2 shadow-xl shadow-primary/30 hover:shadow-primary/40"
+            <Button
+              asChild
+              className="w-full sm:w-auto px-8 py-8 bg-primary text-primary-foreground rounded-xl font-bold text-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2 shadow-xl shadow-primary/30 hover:shadow-primary/40 h-auto"
             >
-              <span>Start Cooking</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              href="/welcome"
-              className="w-full sm:w-auto px-8 py-4 bg-card/50 text-foreground rounded-xl font-bold text-lg hover:bg-card/80 border border-border/50 transition-all flex items-center justify-center backdrop-blur-sm"
+              <Link href="/signup">
+                <span>Start Cooking</span>
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="w-full sm:w-auto px-8 py-8 bg-card/50 text-foreground rounded-xl font-bold text-lg hover:bg-card/80 border-border/50 transition-all flex items-center justify-center backdrop-blur-sm h-auto"
             >
-              Explore Mobile View
-            </Link>
+              <Link href="/welcome">Explore Mobile View</Link>
+            </Button>
           </div>
         </motion.div>
 

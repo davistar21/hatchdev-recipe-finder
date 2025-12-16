@@ -11,6 +11,7 @@ import {
   Star,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 interface RecipeHeroProps {
   recipe: Recipe;
@@ -31,20 +32,32 @@ export function RecipeHero({ recipe }: RecipeHeroProps) {
           </motion.div>
         </Link>
         <div className="flex gap-3">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className="flex items-center justify-center w-10 h-10 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50 transition-colors"
+          <Button
+            asChild
+            variant="ghost"
+            size="icon"
+            className="w-10 h-10 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50 hover:text-white transition-colors border-none"
           >
-            <Share className="w-5 h-5" />
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className="flex items-center justify-center w-10 h-10 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50 transition-colors"
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <Share className="w-5 h-5" />
+            </motion.button>
+          </Button>
+          <Button
+            asChild
+            variant="ghost"
+            size="icon"
+            className="w-10 h-10 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50 hover:text-white transition-colors border-none"
           >
-            <MoreHorizontal className="w-5 h-5" />
-          </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <MoreHorizontal className="w-5 h-5" />
+            </motion.button>
+          </Button>
         </div>
       </div>
 

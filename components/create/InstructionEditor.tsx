@@ -3,6 +3,7 @@
 import React from "react";
 import { Edit2, Trash2, PlusCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 export function InstructionEditor() {
   return (
@@ -28,13 +29,21 @@ export function InstructionEditor() {
               Bring a large pot of salted water to a boil. Add the pasta and
               cook until al dente.
             </p>
-            <div className="flex justify-end gap-3 mt-3 pt-3 border-t border-border/50">
-              <button className="text-muted-foreground hover:text-primary">
+            <div className="flex justify-end gap-2 mt-3 pt-3 border-t border-border/50">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-muted-foreground hover:text-primary w-8 h-8"
+              >
                 <Edit2 className="w-4 h-4" />
-              </button>
-              <button className="text-muted-foreground hover:text-red-500">
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-muted-foreground hover:text-red-500 hover:bg-red-50 w-8 h-8"
+              >
                 <Trash2 className="w-4 h-4" />
-              </button>
+              </Button>
             </div>
           </div>
         </motion.div>
@@ -59,14 +68,19 @@ export function InstructionEditor() {
       </div>
       {/* Add Step Button */}
       <div className="mt-6 ml-3 pl-6 relative">
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="w-full border-2 border-dashed border-border hover:border-primary text-muted-foreground hover:text-primary rounded-xl py-3 flex items-center justify-center gap-2 font-bold text-sm transition-all group"
+        <Button
+          variant="outline"
+          className="w-full border-2 border-dashed border-border hover:border-primary text-muted-foreground hover:text-primary rounded-xl py-6 h-auto flex items-center justify-center gap-2 font-bold text-sm transition-all group bg-transparent"
+          asChild
         >
-          <PlusCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
-          Add Next Step
-        </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <PlusCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            Add Next Step
+          </motion.button>
+        </Button>
       </div>
     </div>
   );

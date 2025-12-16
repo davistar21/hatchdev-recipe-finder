@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Utensils } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function LandingNav() {
   return (
@@ -18,18 +19,19 @@ export function LandingNav() {
         </Link>
 
         <div className="flex items-center gap-4">
-          <Link
-            href="/login"
-            className="hidden sm:flex text-sm font-semibold text-muted-foreground hover:text-primary transition-colors"
+          <Button
+            asChild
+            variant="ghost"
+            className="hidden sm:flex text-sm font-semibold text-muted-foreground hover:text-primary transition-colors bg-transparent hover:bg-transparent"
           >
-            Log In
-          </Link>
-          <Link
-            href="/signup"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2.5 rounded-full font-bold text-sm transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
+            <Link href="/login">Log In</Link>
+          </Button>
+          <Button
+            asChild
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2.5 rounded-full font-bold text-sm transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20 h-auto"
           >
-            Sign Up
-          </Link>
+            <Link href="/signup">Sign Up</Link>
+          </Button>
         </div>
       </div>
     </nav>

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Utensils } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function WelcomeScreen() {
   return (
@@ -97,19 +98,24 @@ export function WelcomeScreen() {
       <div className="w-full px-6 pb-8 pt-2 bg-background">
         <div className="flex flex-col gap-3">
           {/* Primary CTA */}
-          <Link
-            href="/signup"
-            className="flex w-full cursor-pointer items-center justify-center rounded-xl h-14 px-5 bg-primary hover:bg-primary/90 transition-colors text-primary-foreground text-base font-bold tracking-wide shadow-lg shadow-primary/20"
+          <Button
+            asChild
+            className="w-full h-14 rounded-xl text-base font-bold tracking-wide shadow-lg shadow-primary/20 hover:bg-primary/90 transition-colors"
           >
-            <span className="truncate">Create Account</span>
-          </Link>
+            <Link href="/signup">
+              <span className="truncate">Create Account</span>
+            </Link>
+          </Button>
           {/* Secondary CTA */}
-          <Link
-            href="/login"
-            className="flex w-full cursor-pointer items-center justify-center rounded-xl h-14 px-5 bg-transparent border border-border text-foreground text-base font-bold tracking-wide hover:bg-muted transition-colors"
+          <Button
+            asChild
+            variant="outline"
+            className="w-full h-14 rounded-xl text-base font-bold tracking-wide bg-transparent border-border text-foreground hover:bg-muted transition-colors"
           >
-            <span className="truncate">Log In</span>
-          </Link>
+            <Link href="/login">
+              <span className="truncate">Log In</span>
+            </Link>
+          </Button>
         </div>
 
         {/* Social Login Divider */}
@@ -126,27 +132,36 @@ export function WelcomeScreen() {
 
         {/* Social Icons */}
         <div className="flex justify-center gap-6">
-          <button className="h-12 w-12 flex items-center justify-center rounded-full bg-card border border-border shadow-sm hover:scale-105 transition-transform">
+          <Button
+            variant="outline"
+            className="h-12 w-12 rounded-full border-border shadow-sm hover:scale-105 transition-transform bg-card p-0"
+          >
             <img
               alt="Google"
               className="h-6 w-6"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsUNrqbIdwlF38Y-ARTjLp6mcVWcmal9x0PhOzZA7hvAcDCRBRNEu5hfh19M3i4Q0gIFt71QmQjQHOHFajiMaOsRyPiLzfVIZ-s59LkMpUyg5RiZ9vmUmy3gP3m4qDa2laqDLGeUof7f8HBk6gDj_IQZNXw8J6x6wf0G8HCuGvmfjFXLBSHioXPXQYNZoff3a34nI-Uez9HpDTnbVw7fixVrzytftX812xvR-nVLnPFI7m7oZ9n7-5UPaseEXJ_uBnoRJGh_927kE"
             />
-          </button>
-          <button className="h-12 w-12 flex items-center justify-center rounded-full bg-card border border-border shadow-sm hover:scale-105 transition-transform">
+          </Button>
+          <Button
+            variant="outline"
+            className="h-12 w-12 rounded-full border-border shadow-sm hover:scale-105 transition-transform bg-card p-0"
+          >
             <img
               alt="Apple"
               className="h-6 w-6 dark:invert"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuC42zY1vStDi_gFahJR4PIZ2xO_41B5HGvXFnvoaOz0WsxrXlt3T8CydKx9ZAij7UlaHBpB7b6aCkIZNBuhc3yAHEX9q2zjRNa2y--hXiH_Q9DfxxFjHmalEULBMpG5v1jVyKh4Wl5C3dzdpk8cgQVdeQbobRrliot-fTYe1dpTNlqO8CL_mRwa1PrOL4uLxd18q6DkbUm2RflacqeYO4prjLbg96Y96w5NNRZPOWkPGZOcMCMNZPP4KmNiUarNp5hzac2lsd-Np04"
             />
-          </button>
-          <button className="h-12 w-12 flex items-center justify-center rounded-full bg-card border border-border shadow-sm hover:scale-105 transition-transform">
+          </Button>
+          <Button
+            variant="outline"
+            className="h-12 w-12 rounded-full border-border shadow-sm hover:scale-105 transition-transform bg-card p-0"
+          >
             <img
               alt="Facebook"
               className="h-6 w-6"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuATTX5HFxY9UILjmRhiMJaXlvCYIWjyZa_am-HPiNZYEHyCXjfgiTQb6OoyH4WmgvsCOfD5_fybWGtsAy4DfglH4FstGQFu1jzBSOC9EpmpJqMvNFijHLd8pOGF7FN-DVucIDohLr34aegAmM0_CQq6pOzCAnjV_AUAXxFGrSuAcn3ySEaXvxrrp2F7qwDdYcMyUuSnM2uRbdCe4NjnBj4tf4NmramD6OKEwhdpioe6LPzIAS2BtUaPCUcipxzMjZuRwkx9uAwgcro"
             />
-          </button>
+          </Button>
         </div>
 
         {/* Terms */}

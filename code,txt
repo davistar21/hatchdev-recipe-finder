@@ -3,16 +3,17 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Create Recipe</title>
-<!-- Fonts -->
+<title>User Profile - Recipe App</title>
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Theme Configuration -->
+<!-- Theme Config -->
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -22,210 +23,224 @@
                         "primary": "#92ec13",
                         "background-light": "#f7f8f6",
                         "background-dark": "#1a2210",
-                        "surface-light": "#ffffff",
-                        "surface-dark": "#242c1b",
+                        "text-main": "#151811",
+                        "text-secondary": "#798961",
                     },
                     fontFamily: {
                         "display": ["Plus Jakarta Sans", "sans-serif"]
                     },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "2xl": "1rem",
-                        "full": "9999px"
-                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
                 },
             },
         }
     </script>
-<style>
-        /* Hide scrollbar for horizontal scrolling areas but keep functionality */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
 <style>
     body {
       min-height: max(884px, 100dvh);
     }
   </style>
   </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display min-h-screen flex flex-col items-center">
-<div class="w-full max-w-md bg-background-light dark:bg-background-dark min-h-screen flex flex-col shadow-2xl relative">
-<!-- Sticky Header -->
-<div class="sticky top-0 z-50 flex items-center bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md px-4 py-3 justify-between border-b border-gray-200/50 dark:border-gray-800/50">
-<button class="text-slate-500 dark:text-slate-400 text-base font-medium hover:text-slate-800 dark:hover:text-white transition-colors">Cancel</button>
-<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Create Recipe</h2>
-<button class="bg-primary hover:bg-[#82d611] text-black text-sm font-bold px-5 py-2 rounded-full shadow-sm transition-all transform active:scale-95">Publish</button>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-main dark:text-white antialiased overflow-x-hidden">
+<div class="relative flex h-full min-h-screen w-full flex-col max-w-md mx-auto bg-white dark:bg-background-dark shadow-xl">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-10 flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="w-12"></div> <!-- Spacer for centering -->
+<h2 class="text-text-main dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Profile</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center rounded-full h-10 w-10 text-text-main dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+</button>
 </div>
-<!-- Scrollable Content -->
-<div class="flex-1 overflow-y-auto pb-10">
-<!-- Hero Image Uploader -->
-<div class="px-4 py-4">
-<div class="relative w-full aspect-[4/3] rounded-2xl border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-primary dark:hover:border-primary bg-surface-light dark:bg-surface-dark group cursor-pointer transition-colors overflow-hidden flex flex-col items-center justify-center">
-<div class="flex flex-col items-center gap-3 p-6 text-center z-10">
-<div class="w-14 h-14 rounded-full bg-background-light dark:bg-background-dark flex items-center justify-center group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-2xl">add_a_photo</span>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto">
+<!-- ProfileHeader -->
+<div class="flex p-4 flex-col gap-6 pt-6">
+<div class="flex w-full flex-col gap-4 items-center">
+<div class="flex gap-4 flex-col items-center">
+<div class="relative">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-28 w-28 border-4 border-primary shadow-sm" data-alt="Portrait of a smiling woman with glasses" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfdOd0IJ_KscmBzMr-XAOIyFlB5oUfBw3gH9HKrscNLdlSZUcJdteDKZYNhYwc98DJsk_Ex9MfehWUotp8egqR6LvzEUkUYBEleCBxRUYtMRKe04P5_SK3SsWTvftNGiCXtIAXDauKnSiSrNIhubTMnO4VsBLg1_D8_pkz790yV_GUt13AtpAAYWnbdYcL6_wZfQ41m7R3yrMnjLAtByr594KKjEl3Kct8S1uhLnnZXudJzkXn5--qZeRwqtR_MWD6e00XPILy4aI");'>
 </div>
-<p class="text-slate-500 dark:text-slate-400 font-medium text-sm">Tap to upload cover photo</p>
-</div>
-<!-- Background placeholder image suggestion -->
-<div class="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity bg-[url('https://images.unsplash.com/photo-1495521821758-ee18ece6d918?q=80&amp;w=600&amp;auto=format&amp;fit=crop')] bg-cover bg-center" data-alt="Subtle food pattern background"></div>
-</div>
-</div>
-<!-- Basic Info -->
-<div class="px-4 space-y-5">
-<!-- Title -->
-<div class="flex flex-col gap-2">
-<label class="text-slate-900 dark:text-white text-sm font-bold ml-1">Recipe Title</label>
-<input class="w-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3.5 text-base font-medium placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-slate-900 dark:text-white" placeholder="Give your recipe a catchy name" type="text"/>
-</div>
-<!-- Description -->
-<div class="flex flex-col gap-2">
-<label class="text-slate-900 dark:text-white text-sm font-bold ml-1">Description</label>
-<textarea class="w-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3.5 text-base font-normal placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-slate-900 dark:text-white min-h-[100px] resize-none" placeholder="Tell us the story behind this dish..."></textarea>
+<!-- Verification Badge optional visual flare -->
+<div class="absolute bottom-1 right-1 bg-primary text-background-dark rounded-full p-1 border-2 border-white dark:border-background-dark flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
 </div>
 </div>
-<div class="h-6"></div>
-<!-- Metadata Selection -->
-<div class="space-y-6">
-<!-- Difficulty -->
-<div class="px-4">
-<label class="text-slate-900 dark:text-white text-sm font-bold ml-1 mb-3 block">Difficulty</label>
-<div class="flex gap-3">
-<button class="flex-1 bg-primary text-black font-bold py-2.5 px-4 rounded-xl text-sm shadow-sm ring-2 ring-primary/20">
-                            Easy
-                        </button>
-<button class="flex-1 bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-slate-600 dark:text-slate-300 font-medium py-2.5 px-4 rounded-xl text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                            Medium
-                        </button>
-<button class="flex-1 bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-slate-600 dark:text-slate-300 font-medium py-2.5 px-4 rounded-xl text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                            Hard
-                        </button>
+<div class="flex flex-col items-center justify-center gap-1">
+<p class="text-text-main dark:text-white text-2xl font-bold leading-tight tracking-tight text-center">Julia Childish</p>
+<p class="text-text-secondary dark:text-gray-400 text-sm font-medium leading-normal text-center max-w-[280px]">Home cook obsessed with sourdough and spicy noodles. 🍜🍞</p>
 </div>
 </div>
-<!-- Cuisine Scrolls -->
+</div>
+<!-- ProfileStats -->
+<div class="flex justify-between px-2 gap-2">
+<div class="flex flex-1 flex-col gap-0.5 items-center text-center">
+<p class="text-text-main dark:text-white text-xl font-bold leading-tight">42</p>
+<p class="text-text-secondary dark:text-gray-400 text-xs font-medium">Recipes</p>
+</div>
+<div class="w-px bg-gray-200 dark:bg-gray-700 h-8 self-center"></div>
+<div class="flex flex-1 flex-col gap-0.5 items-center text-center">
+<p class="text-text-main dark:text-white text-xl font-bold leading-tight">1.2k</p>
+<p class="text-text-secondary dark:text-gray-400 text-xs font-medium">Followers</p>
+</div>
+<div class="w-px bg-gray-200 dark:bg-gray-700 h-8 self-center"></div>
+<div class="flex flex-1 flex-col gap-0.5 items-center text-center">
+<p class="text-text-main dark:text-white text-xl font-bold leading-tight">150</p>
+<p class="text-text-secondary dark:text-gray-400 text-xs font-medium">Following</p>
+</div>
+</div>
+<!-- Edit Profile Button -->
+<button class="flex w-full cursor-pointer items-center justify-center rounded-lg h-11 px-4 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-text-main dark:text-white text-sm font-bold shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                    Edit Profile
+                </button>
+</div>
+<!-- Tabs -->
+<div class="sticky top-0 z-20 bg-white dark:bg-background-dark shadow-sm">
+<div class="flex border-b border-gray-100 dark:border-gray-800 px-4 justify-between">
+<button class="group flex flex-col items-center justify-center border-b-[3px] border-b-primary text-text-main dark:text-white pb-3 pt-4 flex-1 transition-all">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] filled">grid_view</span>
+<p class="text-sm font-bold tracking-[0.015em]">Created</p>
+</div>
+</button>
+<button class="group flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-text-secondary dark:text-gray-500 pb-3 pt-4 flex-1 hover:text-text-main dark:hover:text-gray-300 transition-all">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+<p class="text-sm font-bold tracking-[0.015em]">Saved</p>
+</div>
+</button>
+</div>
+</div>
+<!-- ImageGrid -->
+<div class="grid grid-cols-2 gap-3 p-4 pb-24">
+<!-- Card 1 -->
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5]">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Close up of a bowl of spicy miso ramen with egg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAdCBiASKdrVCDIW14CEzz1lS_WB9dRglAzhCZXELBQ1DHij-6md_M-ulAwKiT93P4VRnsC-a7K_eIdeMwzyJH5T0zpMHP97aEQepY9ipT7QsHMk1zH4UMANihBUYuhbGn7gXf5O7-3TZdImkcTxm3kUHvBmb4Bz358NkeSk_4or_E8nbRM2-aIztEiEsAruyUcYWO9WyWNaG84xb7ErdF1WIsUS99BTU6DkNvMPNu_E1w7603-H1VZvpEIUW08D5rnHLNWSWFqXec");'></div>
+<div class="absolute top-2 right-2 bg-black/40 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-white text-[12px]">schedule</span>
+<span class="text-white text-[10px] font-bold">30m</span>
+</div>
+</div>
 <div>
-<div class="flex items-center justify-between px-4 mb-3">
-<label class="text-slate-900 dark:text-white text-sm font-bold ml-1">Cuisine</label>
-<span class="text-xs font-semibold text-primary cursor-pointer">View All</span>
-</div>
-<div class="flex overflow-x-auto no-scrollbar gap-3 px-4 pb-2">
-<button class="shrink-0 bg-surface-light dark:bg-surface-dark border border-primary text-slate-900 dark:text-white font-semibold py-2 px-5 rounded-full text-sm">
-                            Italian
-                        </button>
-<button class="shrink-0 bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-slate-600 dark:text-slate-300 font-medium py-2 px-5 rounded-full text-sm hover:border-gray-300">
-                            Mexican
-                        </button>
-<button class="shrink-0 bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-slate-600 dark:text-slate-300 font-medium py-2 px-5 rounded-full text-sm hover:border-gray-300">
-                            Japanese
-                        </button>
-<button class="shrink-0 bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-slate-600 dark:text-slate-300 font-medium py-2 px-5 rounded-full text-sm hover:border-gray-300">
-                            Indian
-                        </button>
-<button class="shrink-0 bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-slate-600 dark:text-slate-300 font-medium py-2 px-5 rounded-full text-sm hover:border-gray-300">
-                            Thai
-                        </button>
-</div>
-</div>
-<!-- Time Inputs -->
-<div class="px-4">
-<label class="text-slate-900 dark:text-white text-sm font-bold ml-1 mb-3 block">Time Required</label>
-<div class="flex gap-4">
-<div class="flex-1 relative">
-<span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-500 font-bold uppercase">Min</span>
-<input class="w-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-base font-medium focus:ring-primary/50 focus:border-primary dark:text-white" placeholder="0" type="number"/>
-<p class="text-xs text-gray-500 mt-1.5 ml-1">Prep Time</p>
-</div>
-<div class="flex-1 relative">
-<span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-500 font-bold uppercase">Min</span>
-<input class="w-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-base font-medium focus:ring-primary/50 focus:border-primary dark:text-white" placeholder="0" type="number"/>
-<p class="text-xs text-gray-500 mt-1.5 ml-1">Cook Time</p>
+<p class="text-text-main dark:text-white text-sm font-bold leading-tight mb-0.5">Spicy Miso Ramen</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">favorite</span>
+<p class="text-text-secondary dark:text-gray-400 text-xs">128</p>
 </div>
 </div>
 </div>
+<!-- Card 2 -->
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5]">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Freshly baked sourdough bread on a wooden board" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAn0IYQd5MxCZIfHpmDMB45jq4PnI_sx1LhIZaOLP9Tq4gSN85G0WyFCdWMYr4aYmoF3DZR9GDe6THsBXpyG_aPH9jL2kEWkaw7p3BN2GpO0UYzWgsV3tJYgwK26YVSRKBT1ZZFwh8kNjlRyErr0wYy2JBt5aZYS6M9eRCsKPxoq-DHl6RF0VeubpU0xRhy6BTymo5Ufg9d7zlZ-Xw1IPP0ueL6aneeubuwUrnSkspCg3vxz9tv3IAJ3PHj7vNE6Cybxu1n342Ovek");'></div>
+<div class="absolute top-2 right-2 bg-black/40 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-white text-[12px]">schedule</span>
+<span class="text-white text-[10px] font-bold">24h</span>
 </div>
-<div class="h-1 w-full bg-gray-100 dark:bg-gray-800/50 my-8"></div>
-<!-- Ingredients Section -->
-<div class="px-4">
-<div class="flex items-center justify-between mb-4">
-<h3 class="text-xl font-bold text-slate-900 dark:text-white tracking-tight">Ingredients</h3>
-<span class="text-sm text-gray-400 font-medium">4 items</span>
 </div>
-<!-- Existing Items List -->
-<div class="space-y-3 mb-4">
-<!-- Item 1 -->
-<div class="flex items-center gap-3 p-3 bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800 rounded-xl shadow-sm group">
-<span class="material-symbols-outlined text-gray-300 cursor-grab active:cursor-grabbing">drag_indicator</span>
-<div class="flex-1 text-slate-900 dark:text-white font-medium text-sm">
-<span class="font-bold mr-1">200g</span> Spaghetti Pasta
-                        </div>
-<button class="text-gray-400 hover:text-red-500 transition-colors p-1">
-<span class="material-symbols-outlined text-xl">close</span>
+<div>
+<p class="text-text-main dark:text-white text-sm font-bold leading-tight mb-0.5">Sourdough Starter</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">favorite</span>
+<p class="text-text-secondary dark:text-gray-400 text-xs">2.4k</p>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5]">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Avocado toast topped with sesame seeds and radish" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD5PlvyfRZ1nlbSZSupBPNlNsDLB2RqqJYdCTuVEVY8qgm-slwcGARnzCzFEO_sqrFZwCN20qvSAey4wyoOYKivgj3WfyZEsek1CwVhMJNG8IZv4W4HtUGgVMwxFogqV6-D2s1tB8yxM6GV893B2aHx0jqH0Lo7ppcrq8vTAqkNn8m4YEyh8-1bAHR8rLQ81gQl7ESVYX7GP_DJrHPHd2cIdnyFSi44dEl54H1ee4mUNgB3-QDRVnGgKxUzKgvHtCBp515hLVllgBA");'></div>
+<div class="absolute top-2 right-2 bg-black/40 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-white text-[12px]">schedule</span>
+<span class="text-white text-[10px] font-bold">15m</span>
+</div>
+</div>
+<div>
+<p class="text-text-main dark:text-white text-sm font-bold leading-tight mb-0.5">Avocado Twist</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">favorite</span>
+<p class="text-text-secondary dark:text-gray-400 text-xs">842</p>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5]">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Colorful berry smoothie bowl with granola" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlrWqIeMsnB3myxRvSP39_iH_8GzOCE1d-Yoja8tGn1KmNhu45nW_2MwQuHLnqgysTMue6Sy6tVGyBV6VvBqrl_oo2XzIh6_8f2cwB4_aT89czENrZOBzwrEQlNITMLYsE4ras0TqgFR8gMQF4tA7htoVkrgCxCgHWyqBfz-1FawxywtaisAe0vwjEtBfmQe5tJcbUfWM-ojOQs_ScINIkTSC4Pt-4Si0uTxhpQBJMV86PmdCMmzZvNr2d_tmMIaMpRm-CXiAvexg");'></div>
+<div class="absolute top-2 right-2 bg-black/40 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-white text-[12px]">schedule</span>
+<span class="text-white text-[10px] font-bold">10m</span>
+</div>
+</div>
+<div>
+<p class="text-text-main dark:text-white text-sm font-bold leading-tight mb-0.5">Berry Bowl</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">favorite</span>
+<p class="text-text-secondary dark:text-gray-400 text-xs">550</p>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5]">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Stack of pancakes with syrup drizzle" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCO7BiX22B5VZOfHTEwxUSvU8DGHZ-19azQ-vHR0M4BB77YiMFt5TkvYTHFrFJ4g_1ovGBL_DNw71YI-Nx-HbVXqG46N-18Q4p3WZ4BYnhY_PLa49bZfad-eNiBR8xkHIel-oH4KuEfDRI-VozTUUGJwkaa6Yw1mUiJs9ouj6hItzTg68zL5vbKcX9i330htuE5uzmW7rglIaYWUQLOYjRWx4WQ44uTeab_dBfy2pavbD43xPbWeRH1PXjTDiVAEkzpfnrhqkBY80o");'></div>
+<div class="absolute top-2 right-2 bg-black/40 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-white text-[12px]">schedule</span>
+<span class="text-white text-[10px] font-bold">45m</span>
+</div>
+</div>
+<div>
+<p class="text-text-main dark:text-white text-sm font-bold leading-tight mb-0.5">Fluffy Pancakes</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">favorite</span>
+<p class="text-text-secondary dark:text-gray-400 text-xs">3.1k</p>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="flex flex-col gap-2 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5]">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Green salad with grilled chicken and dressing" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBxT8hYQTDXJDrLPNqsD1R9I5jKfq94KBhw3GyET71pP9k0HnA_ebffR2xoZ4PI7mDtiLCgxKR6_C7KbqsBjMqv8cCk_1EziyytPlLPVXPKVXP0qIKPaiWYo4acorTWzuyCAUhOhorCfchG8BHY_h-SAJHC5nRH8iXbKufWu7yrCqRYti0dsBWlf0DvKqnYCITUVUmx2T2atmSlxH1vUZ-EK1qmoI2qKCiyPeDqQiABxU3cC1BUUDPdor9hQXQ2DOKg-SBRBFO-kLc");'></div>
+<div class="absolute top-2 right-2 bg-black/40 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-white text-[12px]">schedule</span>
+<span class="text-white text-[10px] font-bold">20m</span>
+</div>
+</div>
+<div>
+<p class="text-text-main dark:text-white text-sm font-bold leading-tight mb-0.5">Summer Salad</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">favorite</span>
+<p class="text-text-secondary dark:text-gray-400 text-xs">420</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-background-dark border-t border-gray-100 dark:border-gray-800 pb-safe pt-2 px-6 h-20 max-w-md mx-auto">
+<div class="flex justify-between items-center h-full pb-2">
+<button class="flex flex-col items-center justify-center gap-1 text-gray-400 dark:text-gray-500 hover:text-text-main dark:hover:text-white transition-colors w-16">
+<span class="material-symbols-outlined text-[26px]">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-gray-400 dark:text-gray-500 hover:text-text-main dark:hover:text-white transition-colors w-16">
+<span class="material-symbols-outlined text-[26px]">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</button>
+<!-- Center Add Button -->
+<button class="flex items-center justify-center bg-primary text-background-dark rounded-full h-12 w-12 shadow-lg -mt-4 border-4 border-white dark:border-background-dark transition-transform hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-gray-400 dark:text-gray-500 hover:text-text-main dark:hover:text-white transition-colors w-16">
+<span class="material-symbols-outlined text-[26px]">notifications</span>
+<span class="text-[10px] font-medium">Alerts</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-primary w-16">
+<span class="material-symbols-outlined text-[26px] filled">person</span>
+<span class="text-[10px] font-bold">Profile</span>
 </button>
 </div>
-<!-- Item 2 -->
-<div class="flex items-center gap-3 p-3 bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800 rounded-xl shadow-sm group">
-<span class="material-symbols-outlined text-gray-300 cursor-grab active:cursor-grabbing">drag_indicator</span>
-<div class="flex-1 text-slate-900 dark:text-white font-medium text-sm">
-<span class="font-bold mr-1">2 tbsp</span> Olive Oil
-                        </div>
-<button class="text-gray-400 hover:text-red-500 transition-colors p-1">
-<span class="material-symbols-outlined text-xl">close</span>
-</button>
-</div>
-</div>
-<!-- Add New Ingredient -->
-<div class="flex gap-2 items-center">
-<button class="flex-1 border-2 border-dashed border-primary/40 bg-primary/5 hover:bg-primary/10 rounded-xl py-3 flex items-center justify-center gap-2 text-primary font-bold text-sm transition-colors">
-<span class="material-symbols-outlined text-lg">add</span>
-                        Add Ingredient
-                    </button>
-</div>
-</div>
-<div class="h-8"></div>
-<!-- Instructions Section -->
-<div class="px-4">
-<div class="flex items-center justify-between mb-4">
-<h3 class="text-xl font-bold text-slate-900 dark:text-white tracking-tight">Instructions</h3>
-</div>
-<!-- Steps List -->
-<div class="space-y-6 relative pl-4 border-l-2 border-gray-100 dark:border-gray-800 ml-3">
-<!-- Step 1 -->
-<div class="relative pl-6">
-<div class="absolute -left-[31px] top-0 w-8 h-8 rounded-full bg-primary text-black flex items-center justify-center font-bold text-sm shadow-sm ring-4 ring-background-light dark:ring-background-dark">1</div>
-<div class="bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800 rounded-xl p-4 shadow-sm">
-<p class="text-slate-600 dark:text-gray-300 text-sm leading-relaxed">
-                                Bring a large pot of salted water to a boil. Add the pasta and cook until al dente.
-                            </p>
-<div class="flex justify-end gap-3 mt-3 pt-3 border-t border-gray-100 dark:border-gray-800/50">
-<button class="text-gray-400 hover:text-primary"><span class="material-symbols-outlined text-lg">edit</span></button>
-<button class="text-gray-400 hover:text-red-500"><span class="material-symbols-outlined text-lg">delete</span></button>
-</div>
-</div>
-</div>
-<!-- Step 2 -->
-<div class="relative pl-6">
-<div class="absolute -left-[31px] top-0 w-8 h-8 rounded-full bg-surface-light dark:bg-surface-dark border-2 border-primary text-slate-900 dark:text-white flex items-center justify-center font-bold text-sm shadow-sm ring-4 ring-background-light dark:ring-background-dark">2</div>
-<div class="bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800 rounded-xl p-4 shadow-sm">
-<textarea class="w-full bg-transparent border-none p-0 text-sm text-slate-900 dark:text-white placeholder-gray-400 focus:ring-0 resize-none" placeholder="Describe the next step..." rows="3"></textarea>
-</div>
-</div>
-</div>
-<!-- Add Step Button -->
-<div class="mt-6 ml-3 pl-6 relative">
-<button class="w-full border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-primary text-gray-500 dark:text-gray-400 hover:text-primary rounded-xl py-3 flex items-center justify-center gap-2 font-bold text-sm transition-all group">
-<span class="material-symbols-outlined text-lg group-hover:scale-110 transition-transform">add_circle</span>
-                        Add Next Step
-                    </button>
-</div>
-</div>
-<div class="h-20"></div>
 </div>
 </div>
 </body></html>
