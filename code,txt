@@ -1,49 +1,48 @@
 <!DOCTYPE html>
 
-<html class="light" lang="en"><head>
+<html class="light"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Recipe Feed &amp; Discovery</title>
-<!-- Fonts -->
+<title>Recipe Details</title>
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Theme Config -->
+<!-- Tailwind Config -->
 <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#92ec13",
-                        "background-light": "#f7f8f6",
-                        "background-dark": "#1a2210",
-                        "surface-light": "#ffffff",
-                        "surface-dark": "#2c3620",
-                        "text-main": "#151811",
-                        "text-sub": "#798961",
-                    },
-                    fontFamily: {
-                        "display": ["Plus Jakarta Sans", "sans-serif"]
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                },
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#92ec13",
+              "primary-dark": "#7cc910", 
+              "background-light": "#f7f8f6",
+              "background-dark": "#1a2210",
+              "surface-light": "#ffffff",
+              "surface-dark": "#252f1a",
             },
-        }
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
     </script>
 <style>
-        /* Hide scrollbar for Chrome, Safari and Opera */
+        /* Custom scrollbar hiding for cleaner mobile look */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
-        /* Hide scrollbar for IE, Edge and Firefox */
         .no-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 <style>
@@ -52,215 +51,214 @@
     }
   </style>
   </head>
-<body class="bg-gray-100 font-display flex justify-center min-h-screen">
-<!-- Mobile Screen Container -->
-<div class="relative flex h-full w-full max-w-[430px] flex-col bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden min-h-screen pb-24">
-<!-- Status Bar Area (Placeholder) -->
-<div class="h-12 w-full bg-surface-light dark:bg-surface-dark shrink-0"></div>
-<!-- Sticky Header & Search -->
-<div class="sticky top-0 z-30 bg-surface-light dark:bg-surface-dark shadow-sm">
-<!-- Top App Bar -->
-<div class="flex items-center justify-between px-4 pb-2 pt-2">
-<div class="flex flex-col">
-<p class="text-text-sub dark:text-gray-400 text-xs font-medium">Good Morning,</p>
-<h2 class="text-text-main dark:text-white text-2xl font-bold leading-tight tracking-[-0.015em]">Discover</h2>
-</div>
-<div class="flex items-center gap-3">
-<button class="relative rounded-full overflow-hidden w-10 h-10 border-2 border-white shadow-sm">
-<img class="w-full h-full object-cover" data-alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZdrVTfmq-A2wzvQbyKeK3fY41dBr8dJQR0zsvDHAWnCxQIYoiTqozih1oxd3SEYuxbS8kuiEpo5lrxL8haGbWRqyTln9OiMGCc6vzE1SzskmtjNrpV4PzBs5945UHbFk9-Yodb-I86GphM_uJdHZk0oF525KKGNR_6UrxS8ezPi7IhvxTLvkj-ZfIst9BJgHoRJZRE9z2Glt2CGSdX45kNQL755lQNYx_4mxAg5hlf0KuyeuWQp6BYAkqSqnLL3_myDXoikLAFTw"/>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#151811] dark:text-[#f7f8f6] antialiased pb-28">
+<!-- Hero Image Section with Overlay Header -->
+<div class="relative w-full h-[420px] rounded-b-3xl overflow-hidden shadow-sm z-0">
+<!-- Top Navigation Overlay -->
+<div class="absolute top-0 left-0 w-full p-4 pt-6 md:pt-8 flex justify-between items-center z-20">
+<button class="flex items-center justify-center w-10 h-10 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex gap-3">
+<button class="flex items-center justify-center w-10 h-10 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50 transition-colors">
+<span class="material-symbols-outlined">ios_share</span>
+</button>
+<button class="flex items-center justify-center w-10 h-10 rounded-full bg-black/30 backdrop-blur-md text-white hover:bg-black/50 transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
 </button>
 </div>
 </div>
-<!-- Search Bar -->
-<div class="px-4 py-3">
-<div class="flex w-full items-center gap-3">
-<label class="flex flex-col flex-1 h-12">
-<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm">
-<div class="text-text-sub flex border-none bg-background-light dark:bg-surface-dark items-center justify-center pl-4 rounded-l-xl border-r-0 dark:text-gray-400">
-<span class="material-symbols-outlined">search</span>
+<!-- Hero Image -->
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Close up of delicious avocado lime pasta with fresh herbs" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYZDJxAMuPgDVX5OnbQaYTUdfxlxGDfaucZ7tScOqVohj-S9FZrzztCuc3ceruOq2DyaR735SnEFAK-yiLvQ3TzVhBXqzN5fAcvhmraOLGG6lC8IpLoU4SLXe1ZuF561S5SJff3vCtL1ZBmZFONmZwBCOaJoEPMeYtp5e8-4kH8XVov97jWfFxPwlJyEb29onNm6oQecP70-XLRKV5hXdO96YDAUV8sVwC3u3ytp1i8TnkpaV0o1gx-Q3p9NcSFDGKSftFX03YLrY');"></div>
+<!-- Gradient Overlay for Readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<!-- Hero Content (Title & Key Stats) -->
+<div class="absolute bottom-0 left-0 w-full p-5 pb-8 text-white z-10">
+<div class="inline-flex items-center gap-1 bg-primary/90 text-black px-2.5 py-1 rounded-lg mb-3 shadow-lg backdrop-blur-sm">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="text-xs font-bold uppercase tracking-wider">Top Rated</span>
 </div>
-<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-text-main dark:text-white focus:outline-0 focus:ring-0 border-none bg-background-light dark:bg-surface-dark focus:border-none h-full placeholder:text-text-sub dark:placeholder:text-gray-500 px-4 rounded-l-none border-l-0 pl-2 text-base font-medium leading-normal" placeholder="Search recipes, ingredients..." value=""/>
-</div>
-</label>
-<button class="flex items-center justify-center h-12 w-12 bg-primary rounded-xl text-text-main hover:bg-opacity-90 transition-colors shadow-sm shrink-0">
-<span class="material-symbols-outlined">tune</span>
-</button>
-</div>
-</div>
-<!-- Chips / Categories -->
-<div class="flex gap-3 px-4 pb-4 overflow-x-auto no-scrollbar">
-<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-5 pr-5 shadow-sm">
-<p class="text-text-main text-sm font-bold leading-normal">All</p>
-</button>
-<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-700 pl-5 pr-5">
-<span class="text-lg">🔥</span>
-<p class="text-text-main dark:text-white text-sm font-medium leading-normal">Trending</p>
-</button>
-<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-700 pl-5 pr-5">
-<span class="text-lg">🥑</span>
-<p class="text-text-main dark:text-white text-sm font-medium leading-normal">Healthy</p>
-</button>
-<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-700 pl-5 pr-5">
-<span class="text-lg">🍝</span>
-<p class="text-text-main dark:text-white text-sm font-medium leading-normal">Italian</p>
-</button>
-<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-700 pl-5 pr-5">
-<span class="text-lg">⏱️</span>
-<p class="text-text-main dark:text-white text-sm font-medium leading-normal">Fast</p>
-</button>
-</div>
-</div>
-<!-- Scrollable Feed Content -->
-<div class="flex flex-col px-4 pt-4 gap-6 overflow-y-auto no-scrollbar">
-<!-- Card 1 -->
-<article class="flex flex-col rounded-2xl bg-surface-light dark:bg-surface-dark shadow-[0_2px_12px_rgba(0,0,0,0.06)] overflow-hidden group">
-<div class="relative w-full aspect-[4/3] overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Top down view of avocado toast with poached egg on a plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaj8d2XiylUHWqGxgCaTVeIEEDdtsVyK0hvDvOZLpFHAOJSU60TaAHStyOSOUKQQhRrPJ6Y0o12V47vp1-pofHhcSc1nGwGIdnN5rXA-SoH5ksmV0EVv0aygVMzpnvUtgfa2r2Crtd8t9jaBJdwFmRNJiFlVU_5_WuFOem8e7huqp5UH6-q2DNxfLTkpkXUNG8t6P_hmkHz2lduE1UvqB2dwwcUx36ajMtmpm8J0kmo-f0Ib_3hF4o_4Hmbv2Ulkya7Yd7KJKEnUY"/>
-<!-- Creator Badge -->
-<div class="absolute top-3 left-3 flex items-center gap-2 bg-white/90 dark:bg-black/70 backdrop-blur-sm p-1.5 pr-3 rounded-full shadow-sm">
-<img class="w-6 h-6 rounded-full object-cover" data-alt="Chef avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ2PRJNxGprbdlQ8QQMXR6dk1yQL5qujuiwT46mc9HBUOgc-h4lYFtXqWeQkR2th_jnR1P6xTQ5neFlW025oPsrN5JPTyWTSqZ65F3zsemaNeCFIutFrIXKE-w6E_HJosKqiulpur9EauWuihOzxYMFMiZ1j3aCq16MoKfEfUz_24lF3KyAAAqUxA4cKzXtMgDBv1QKIYvYP5RzfGJHhoggBMTHWFL-s2S_gaiRBbZ21rxHHCSHgoyBGBgQZFJHjHy0VAAqDkIICo"/>
-<span class="text-xs font-semibold text-text-main dark:text-white">Martha Cooks</span>
-</div>
-<!-- Like Button -->
-<button class="absolute top-3 right-3 p-2 rounded-full bg-white/20 backdrop-blur-md hover:bg-primary transition-colors text-white hover:text-text-main">
-<span class="material-symbols-outlined text-[20px] font-variation-settings-'FILL'1">favorite</span>
-</button>
-</div>
-<div class="p-4 flex flex-col gap-2">
-<div class="flex justify-between items-start">
-<h3 class="text-text-main dark:text-white text-lg font-bold leading-tight flex-1 pr-2">Avocado Toast with Poached Egg</h3>
-<div class="flex items-center gap-1 bg-background-light dark:bg-black/20 px-2 py-1 rounded-lg">
-<span class="material-symbols-outlined text-yellow-500 text-[18px] font-variation-settings-'FILL'1">star</span>
-<span class="text-text-main dark:text-white text-sm font-bold">4.8</span>
-<span class="text-text-sub text-xs">(120)</span>
-</div>
-</div>
-<div class="flex items-center justify-between mt-1">
-<div class="flex items-center gap-3 text-text-sub dark:text-gray-400">
-<div class="flex items-center gap-1 text-xs font-medium bg-background-light dark:bg-background-dark px-2 py-1 rounded-md">
+<h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4 shadow-sm">Creamy Avocado<br/>Lime Pasta</h1>
+<div class="flex items-center gap-4 text-sm font-medium text-white/90">
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center">
 <span class="material-symbols-outlined text-[16px]">schedule</span>
-                                15 Mins
-                            </div>
-<div class="flex items-center gap-1 text-xs font-medium bg-background-light dark:bg-background-dark px-2 py-1 rounded-md">
-<span class="material-symbols-outlined text-[16px]">bar_chart</span>
-                                Easy
-                            </div>
 </div>
-<div class="flex gap-2">
-<button class="text-text-main dark:text-white hover:text-primary transition-colors">
-<span class="material-symbols-outlined">share</span>
-</button>
+<span>25 mins</span>
 </div>
-</div>
-</div>
-</article>
-<!-- Card 2 -->
-<article class="flex flex-col rounded-2xl bg-surface-light dark:bg-surface-dark shadow-[0_2px_12px_rgba(0,0,0,0.06)] overflow-hidden group">
-<div class="relative w-full aspect-[4/3] overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Creamy tomato basil pasta in a bowl with cheese" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6Qj33gbeOLRGDrgDJ_aa4H_XOlco8D0p15tIxEGUaJgxQm5FGmxnuGJDvJ9maGZN3yp43WiBWxuWxQPVGZtPrWTgNyA19fNX15QmSMiZBQ1IIwGxaPkXvVAFQr4dHE15ehNThSkpmf-dH26uMqUCpzZ8BXf0SjDkmj4T4AVTV-oLBg2bzOHEpIfB9lPgU3D0yT8v5CxKGGwe9rk6vCGV65Gws1D27xfxEF-xUN4aOrOksG81_9Q6k09iDtmYMQxlULjRo3jj-Gls"/>
-<div class="absolute top-3 left-3 flex items-center gap-2 bg-white/90 dark:bg-black/70 backdrop-blur-sm p-1.5 pr-3 rounded-full shadow-sm">
-<img class="w-6 h-6 rounded-full object-cover" data-alt="Chef avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGpyiO3yku_1IAClfbjHOeHNvDQiagh650COF8Kfb8ON4Pt58FiXe3pJEE_C4gxCnjVYuafj1vWBNIv3lxprUucj9OAKIsTx9UG0alPzdYZJH6qb7LHAhOc7xC0TKBBYKNTyHTLs4FwkIU3yYXHjrsTVjpE9XipgDLmfVqWE95biwi2WERhb267ZgV_5H14IUxk82CHtCIB8cK9GHp2oN955el-oK3xDForUBSriY1l-jw2zTPeL45TVSiJt6UyjBf8IYuAFz5hpg"/>
-<span class="text-xs font-semibold text-text-main dark:text-white">Gustavo's Kitchen</span>
-</div>
-<button class="absolute top-3 right-3 p-2 rounded-full bg-white/20 backdrop-blur-md hover:bg-primary transition-colors text-white hover:text-text-main">
-<span class="material-symbols-outlined text-[20px]">favorite</span>
-</button>
-</div>
-<div class="p-4 flex flex-col gap-2">
-<div class="flex justify-between items-start">
-<h3 class="text-text-main dark:text-white text-lg font-bold leading-tight flex-1 pr-2">Creamy Tomato Basil Pasta</h3>
-<div class="flex items-center gap-1 bg-background-light dark:bg-black/20 px-2 py-1 rounded-lg">
-<span class="material-symbols-outlined text-yellow-500 text-[18px] font-variation-settings-'FILL'1">star</span>
-<span class="text-text-main dark:text-white text-sm font-bold">4.9</span>
-<span class="text-text-sub text-xs">(85)</span>
-</div>
-</div>
-<div class="flex items-center justify-between mt-1">
-<div class="flex items-center gap-3 text-text-sub dark:text-gray-400">
-<div class="flex items-center gap-1 text-xs font-medium bg-background-light dark:bg-background-dark px-2 py-1 rounded-md">
-<span class="material-symbols-outlined text-[16px]">schedule</span>
-                                30 Mins
-                            </div>
-<div class="flex items-center gap-1 text-xs font-medium bg-background-light dark:bg-background-dark px-2 py-1 rounded-md">
+<div class="w-1 h-1 rounded-full bg-white/50"></div>
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center">
 <span class="material-symbols-outlined text-[16px]">local_fire_department</span>
-                                450 Kcal
-                            </div>
 </div>
-<div class="flex gap-2">
-<button class="text-text-main dark:text-white hover:text-primary transition-colors">
-<span class="material-symbols-outlined">share</span>
+<span>420 kcal</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Container (Overlapping) -->
+<div class="relative px-5 -mt-6 z-10 flex flex-col gap-6">
+<!-- Chef/Author Card -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 shadow-lg shadow-black/5 flex items-center justify-between border border-white/50 dark:border-white/5">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-gray-200 bg-cover bg-center border-2 border-primary" data-alt="Portrait of Chef Mario smiling" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCcQ8eft21MXpofYD38OBk28qCy0l-oG_k08UqXHuohGNSs6REGzXYoU71ScZGwIXuHg5SB2QF4DZ06RTcoMqUn8LGChGMPyG2UpYQbC-v-AOaXrofTLKMAk80HPNtNGcjp1peZr072b_7hVpHjpYAhc2c5n8pNnfzY-4afT5KX-SCEOh_uc_kRQvi7j-Rz3pRUN4TRUi997xJJvDyJiH8a4rRkQ2ibE_n0-II3vAYtxe4XOXePol5Io1m5Uek66By1yweVeje9sVM');"></div>
+<div>
+<h3 class="font-bold text-[#151811] dark:text-white leading-tight">Chef Mario</h3>
+<div class="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+<span>Pro Chef</span>
+</div>
+</div>
+</div>
+<button class="px-4 py-2 bg-gray-100 dark:bg-white/10 rounded-full text-xs font-bold text-[#151811] dark:text-white hover:bg-gray-200 dark:hover:bg-white/20 transition-colors">
+                View Profile
+            </button>
+</div>
+<!-- Action Bar (Likes, Saves, etc) -->
+<div class="flex justify-between items-center bg-surface-light dark:bg-surface-dark rounded-2xl p-2 shadow-sm border border-gray-100 dark:border-white/5">
+<button class="flex-1 flex flex-col items-center justify-center gap-1 py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-red-500 transition-colors" style="font-variation-settings: 'FILL' 0;">favorite</span>
+<span class="text-xs font-semibold text-gray-500 dark:text-gray-400">1.2k</span>
+</button>
+<div class="w-px h-8 bg-gray-200 dark:bg-white/10"></div>
+<button class="flex-1 flex flex-col items-center justify-center gap-1 py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+<span class="text-xs font-semibold text-[#151811] dark:text-white">Saved</span>
+</button>
+<div class="w-px h-8 bg-gray-200 dark:bg-white/10"></div>
+<button class="flex-1 flex flex-col items-center justify-center gap-1 py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-[#151811] dark:group-hover:text-white transition-colors">star</span>
+<span class="text-xs font-semibold text-gray-500 dark:text-gray-400">4.8 (124)</span>
 </button>
 </div>
-</div>
-</div>
-</article>
-<!-- Card 3 -->
-<article class="flex flex-col rounded-2xl bg-surface-light dark:bg-surface-dark shadow-[0_2px_12px_rgba(0,0,0,0.06)] overflow-hidden group">
-<div class="relative w-full aspect-[4/3] overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Healthy green quinoa salad bowl with chickpeas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBambjJKyynOSIzMoHr9A230YJ52tDid1dWpO7HV1Fk3QMf45xPXOGKZYzvgLgGEONjiwdjSdZmLP8NF1tl3Ax7rOPFCPgXJWbjUnDAdsHZn4FPfKmcCleLnYfXVb3osw1RDOisDv_R9xWMOjKSwF-z0jL0zxSZM2ZQ1FUJbILsouS1p-v27cCDNcrelvpChZAT2-0Q72f8iveNWqPdtiWCIVJNxoFJZJGUKTBr3gUkrkuCMTFihRCzZdjExF_qfLyTIeCDtIyz02g"/>
-<div class="absolute top-3 left-3 flex items-center gap-2 bg-white/90 dark:bg-black/70 backdrop-blur-sm p-1.5 pr-3 rounded-full shadow-sm">
-<img class="w-6 h-6 rounded-full object-cover" data-alt="Chef avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOWD_C85Vvynk-xtnGKcbLs8nluM2y0jMe1IMCT861yqs03liDAsYJ15p2WWAEpU7JBVvLZp511O-vC_9lcLqFggkicT7hPiDs74cP-A6tSm7o2J3DhF7BRHSmzxlWy0DZS1N-0m54MnAQPPL4ZIz5LyiAGl1NlWp_kToIpA0vKjawSn6qthvKp_QaaBhDrQhkGXlwTw01uApmHvxFuU18fHRBhONNOpj_bs-EPxbnyQxUImaNTe0mK94jlwJOISeRXiEasFhdy_o"/>
-<span class="text-xs font-semibold text-text-main dark:text-white">Sarah Veg</span>
-</div>
-<button class="absolute top-3 right-3 p-2 rounded-full bg-white/20 backdrop-blur-md hover:bg-primary transition-colors text-white hover:text-text-main">
-<span class="material-symbols-outlined text-[20px]">favorite</span>
-</button>
-</div>
-<div class="p-4 flex flex-col gap-2">
-<div class="flex justify-between items-start">
-<h3 class="text-text-main dark:text-white text-lg font-bold leading-tight flex-1 pr-2">Superfood Quinoa Salad</h3>
-<div class="flex items-center gap-1 bg-background-light dark:bg-black/20 px-2 py-1 rounded-lg">
-<span class="material-symbols-outlined text-yellow-500 text-[18px] font-variation-settings-'FILL'1">star</span>
-<span class="text-text-main dark:text-white text-sm font-bold">4.7</span>
-<span class="text-text-sub text-xs">(210)</span>
-</div>
-</div>
-<div class="flex items-center justify-between mt-1">
-<div class="flex items-center gap-3 text-text-sub dark:text-gray-400">
-<div class="flex items-center gap-1 text-xs font-medium bg-background-light dark:bg-background-dark px-2 py-1 rounded-md">
-<span class="material-symbols-outlined text-[16px]">schedule</span>
-                                20 Mins
-                            </div>
-<div class="flex items-center gap-1 text-xs font-medium bg-background-light dark:bg-background-dark px-2 py-1 rounded-md">
-<span class="material-symbols-outlined text-[16px]">eco</span>
-                                Vegan
-                            </div>
-</div>
-<div class="flex gap-2">
-<button class="text-text-main dark:text-white hover:text-primary transition-colors">
-<span class="material-symbols-outlined">share</span>
-</button>
-</div>
-</div>
-</div>
-</article>
-<!-- Spacer for Bottom Nav -->
-<div class="h-8"></div>
-</div>
-<!-- Bottom Navigation -->
-<nav class="absolute bottom-0 w-full bg-surface-light dark:bg-surface-dark border-t border-gray-100 dark:border-gray-800 pb-5 pt-3 px-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+<!-- Ingredients Section -->
+<div class="flex flex-col gap-4">
 <div class="flex items-center justify-between">
-<button class="flex flex-col items-center gap-1 text-primary">
-<span class="material-symbols-outlined text-[26px] font-variation-settings-'FILL'1">home</span>
-<span class="text-[10px] font-medium">Home</span>
+<h2 class="text-xl font-bold text-[#151811] dark:text-white">Ingredients</h2>
+<button class="text-sm font-bold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-white/10 px-3 py-1 rounded-lg">2 Servings</button>
+</div>
+<!-- Price Check CTA -->
+<button class="w-full bg-primary active:bg-primary-dark transition-colors rounded-xl p-4 flex items-center justify-between group shadow-lg shadow-primary/20">
+<div class="flex items-center gap-3">
+<div class="bg-[#151811] p-2 rounded-lg text-white">
+<span class="material-symbols-outlined">shopping_basket</span>
+</div>
+<div class="text-left">
+<p class="text-[#151811] font-bold text-sm">Check local prices</p>
+<p class="text-[#151811]/70 text-xs">Compare stores nearby</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#151811] group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </button>
-<button class="flex flex-col items-center gap-1 text-text-sub dark:text-gray-400 hover:text-text-main dark:hover:text-white transition-colors">
-<span class="material-symbols-outlined text-[26px]">search</span>
-<span class="text-[10px] font-medium">Search</span>
-</button>
-<!-- Center Add Button -->
-<button class="flex items-center justify-center -mt-8 bg-text-main dark:bg-primary text-white dark:text-text-main rounded-full w-14 h-14 shadow-lg hover:scale-105 transition-transform border-4 border-background-light dark:border-background-dark">
-<span class="material-symbols-outlined text-[28px]">add</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-text-sub dark:text-gray-400 hover:text-text-main dark:hover:text-white transition-colors">
-<span class="material-symbols-outlined text-[26px]">bookmark</span>
-<span class="text-[10px] font-medium">Saved</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-text-sub dark:text-gray-400 hover:text-text-main dark:hover:text-white transition-colors">
-<span class="material-symbols-outlined text-[26px]">person</span>
-<span class="text-[10px] font-medium">Profile</span>
+<!-- Ingredients List -->
+<div class="flex flex-col gap-3">
+<!-- Item 1 -->
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-light dark:bg-surface-dark border border-transparent hover:border-gray-200 dark:hover:border-white/10 transition-all cursor-pointer">
+<input checked="" class="w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary bg-gray-50 dark:bg-white/5 dark:border-gray-600 dark:checked:bg-primary dark:checked:border-primary" type="checkbox"/>
+<span class="flex-1 text-sm font-medium text-[#151811] dark:text-white line-through opacity-50">Ripe Avocados</span>
+<span class="text-sm text-gray-500 dark:text-gray-400 font-medium opacity-50">2 pcs</span>
+</label>
+<!-- Item 2 -->
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-light dark:bg-surface-dark border border-transparent hover:border-gray-200 dark:hover:border-white/10 transition-all cursor-pointer">
+<input class="w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary bg-gray-50 dark:bg-white/5 dark:border-gray-600 dark:checked:bg-primary dark:checked:border-primary" type="checkbox"/>
+<span class="flex-1 text-sm font-medium text-[#151811] dark:text-white">Whole Wheat Pasta</span>
+<span class="text-sm text-gray-500 dark:text-gray-400 font-medium">200g</span>
+</label>
+<!-- Item 3 -->
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-light dark:bg-surface-dark border border-transparent hover:border-gray-200 dark:hover:border-white/10 transition-all cursor-pointer">
+<input class="w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary bg-gray-50 dark:bg-white/5 dark:border-gray-600 dark:checked:bg-primary dark:checked:border-primary" type="checkbox"/>
+<span class="flex-1 text-sm font-medium text-[#151811] dark:text-white">Fresh Lime Juice</span>
+<span class="text-sm text-gray-500 dark:text-gray-400 font-medium">2 tbsp</span>
+</label>
+<!-- Item 4 -->
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-light dark:bg-surface-dark border border-transparent hover:border-gray-200 dark:hover:border-white/10 transition-all cursor-pointer">
+<input class="w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary bg-gray-50 dark:bg-white/5 dark:border-gray-600 dark:checked:bg-primary dark:checked:border-primary" type="checkbox"/>
+<span class="flex-1 text-sm font-medium text-[#151811] dark:text-white">Garlic Cloves</span>
+<span class="text-sm text-gray-500 dark:text-gray-400 font-medium">2 pcs</span>
+</label>
+<!-- Item 5 -->
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-light dark:bg-surface-dark border border-transparent hover:border-gray-200 dark:hover:border-white/10 transition-all cursor-pointer">
+<input class="w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary bg-gray-50 dark:bg-white/5 dark:border-gray-600 dark:checked:bg-primary dark:checked:border-primary" type="checkbox"/>
+<span class="flex-1 text-sm font-medium text-[#151811] dark:text-white">Olive Oil</span>
+<span class="text-sm text-gray-500 dark:text-gray-400 font-medium">1 tbsp</span>
+</label>
+</div>
+<button class="mt-2 text-sm font-bold text-gray-500 dark:text-gray-400 flex items-center justify-center gap-1">
+                Show 3 more items <span class="material-symbols-outlined text-[16px]">expand_more</span>
 </button>
 </div>
-</nav>
+<hr class="border-gray-200 dark:border-white/10"/>
+<!-- Instructions Section -->
+<div class="flex flex-col gap-6">
+<h2 class="text-xl font-bold text-[#151811] dark:text-white">Instructions</h2>
+<div class="relative pl-4 border-l-2 border-gray-200 dark:border-white/10 space-y-8">
+<!-- Step 1 -->
+<div class="relative">
+<div class="absolute -left-[25px] top-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-[#151811] font-bold text-sm shadow-sm ring-4 ring-background-light dark:ring-background-dark">1</div>
+<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-gray-100 dark:border-white/5">
+<h4 class="font-bold text-[#151811] dark:text-white mb-2">Boil the Pasta</h4>
+<p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Bring a large pot of salted water to a boil. Add the pasta and cook according to package instructions until al dente.
+                        </p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<div class="absolute -left-[25px] top-0 flex items-center justify-center w-8 h-8 rounded-full bg-surface-light dark:bg-surface-dark text-[#151811] dark:text-white font-bold text-sm shadow-sm ring-4 ring-background-light dark:ring-background-dark border border-gray-200 dark:border-white/10">2</div>
+<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-gray-100 dark:border-white/5">
+<h4 class="font-bold text-[#151811] dark:text-white mb-2">Prepare the Sauce</h4>
+<p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                            While pasta cooks, combine avocado, lime juice, garlic, olive oil, spinach, basil, and pecans in a food processor.
+                        </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative">
+<div class="absolute -left-[25px] top-0 flex items-center justify-center w-8 h-8 rounded-full bg-surface-light dark:bg-surface-dark text-[#151811] dark:text-white font-bold text-sm shadow-sm ring-4 ring-background-light dark:ring-background-dark border border-gray-200 dark:border-white/10">3</div>
+<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-xl shadow-sm border border-gray-100 dark:border-white/5">
+<h4 class="font-bold text-[#151811] dark:text-white mb-2">Combine &amp; Serve</h4>
+<p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Drain pasta and return to pot. Pour the avocado sauce over the pasta and toss until fully coated. Season with salt and pepper.
+                        </p>
+<div class="mt-3 rounded-lg overflow-hidden h-32 w-full bg-cover bg-center" data-alt="Close up of pasta being mixed with green sauce" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCmtCb3QML_REuJ8TM4lfLat8S4lRd0cEILMUMRwEDM4eXXW6F-pQUIfUvl3tCs424RaCQhdZdVFiAqGxpYiTDGeFs1FuMYiN-XVdxMRgx6upGk3esOrxp7ZX7BOb3eX-YFAXQ-08re7uLUqYmdqFdFJKtLgXWjsd3Q4qLAjYYo1XqYVTu3mGys06LpXC8O3uqsMubVUy2F4mF0MdRhhaKK5ZaArO55aTCP5LcmC48slZprxEIIqlguhOuKofJuW2_BlwytxAQ0DzM');"></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="border-gray-200 dark:border-white/10"/>
+<!-- Reviews Teaser -->
+<div class="flex flex-col gap-4 mb-4">
+<div class="flex items-center justify-between">
+<h2 class="text-xl font-bold text-[#151811] dark:text-white">Reviews (124)</h2>
+<button class="text-primary font-bold text-sm">See all</button>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-xl border border-gray-100 dark:border-white/5">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-gray-300 bg-cover bg-center" data-alt="User avatar for Sarah M." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVW3moqUNUyfbf02R9hPfE7kyWz0k_4_8cq3FrWhS88lEPIsJWbi9HbDngjaEb6wxmtzNY8jQOBaPxk7-vO5NC4YGNOEXFBvF4WMZM6RxzmpR81auceyXU48Xcsr_hPixcRxqwYXTnZw_VFkvx0o5qkNSpg8mTHmZDj-Z1rLzGwjYhxwTvaPpust_acX8JkIm69P2Q6LgHmnIoNVNSz0SlMRQCDILrTJgSD3vo3cEYAnqtfKQbzRUbhTjXY1jcfy1-PCB5ra7y5tc');"></div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-sm font-bold text-[#151811] dark:text-white">Sarah M.</span>
+<div class="flex text-primary text-[10px]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-300 line-clamp-2">
+                            Absolutely delicious! The lime really cuts through the richness of the avocado. My kids loved it too, which is a rare win!
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom "Cook" Mode Bar -->
+<div class="fixed bottom-0 left-0 w-full p-4 bg-white/80 dark:bg-[#1a2210]/90 backdrop-blur-md border-t border-gray-200 dark:border-white/5 z-40">
+<button class="w-full bg-[#151811] dark:bg-primary text-white dark:text-[#1a2210] font-bold text-lg py-4 rounded-xl shadow-xl flex items-center justify-center gap-2 transform active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">play_circle</span>
+            Start Cooking Mode
+        </button>
 </div>
 </body></html>

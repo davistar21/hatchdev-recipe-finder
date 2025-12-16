@@ -134,3 +134,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
