@@ -44,4 +44,20 @@ declare global {
     reviews: Review[];
     isTopRated?: boolean;
   }
+
+  interface User {
+    id: string;
+    email: string;
+    name: string;
+    avatar?: string;
+    bio?: string;
+    followersCount: number;
+    followingCount: number;
+    recipesCount: number;
+  }
+
+  interface AuthResponse {
+    user: User;
+    token: string;
+  }
 }
