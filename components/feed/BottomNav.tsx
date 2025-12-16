@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Home, Search, Plus, Bookmark, User } from "lucide-react";
 
 export function BottomNav() {
@@ -16,9 +17,11 @@ export function BottomNav() {
           <span className="text-[10px] font-medium">Search</span>
         </button>
         {/* Center Add Button */}
-        <button className="flex items-center justify-center -mt-8 bg-foreground text-card rounded-full w-14 h-14 shadow-lg hover:scale-105 transition-transform border-4 border-background">
-          <Plus className="w-[28px] h-[28px]" />
-        </button>
+        <Link href="/create">
+          <button className="flex items-center justify-center -mt-8 bg-foreground text-card rounded-full w-14 h-14 shadow-lg hover:scale-105 transition-transform border-4 border-background">
+            <Plus className="w-[28px] h-[28px]" />
+          </button>
+        </Link>
         <button className="flex flex-col items-center gap-1 text-muted-foreground hover:text-foreground transition-colors">
           <Bookmark className="w-[26px] h-[26px]" />
           <span className="text-[10px] font-medium">Saved</span>
