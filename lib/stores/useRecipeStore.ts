@@ -8,6 +8,8 @@ interface RecipeStore {
   fetchRecipes: () => Promise<void>; // Skeleton
   fetchRecipeById: (id: string) => Promise<void>; // Skeleton
   createRecipe: (data: Partial<Recipe>) => Promise<void>; // Skeleton
+  setActiveRecipe: (recipe: Recipe) => void;
+  updateRecipe: (recipe: Recipe) => void;
 }
 
 export const useRecipeStore = create<RecipeStore>((set) => ({
@@ -15,6 +17,15 @@ export const useRecipeStore = create<RecipeStore>((set) => ({
   activeRecipe: null,
   isLoading: false,
   error: null,
+  
+  setActiveRecipe: (recipe) => {
+    set({ activeRecipe: recipe });
+  },
+
+  updateRecipe: (recipe) => {
+    set({ activeRecipe: recipe });
+  },
+
   fetchRecipes: async () => {
     /* To be implemented by Tomilade */
      set({ isLoading: true, error: null });
@@ -28,8 +39,18 @@ export const useRecipeStore = create<RecipeStore>((set) => ({
       set({ error: "Failed to fetch recipes", isLoading: false });
     }
   },
-  fetchRecipeById: async () => {
+  fetchRecipeById: async (id) => {
     /* To be implemented by Tomilade */
+    set({isLoading: true, error: null});
+     
+    try {
+      const response = await fetch(`api/user/${id}`)
+      const data = await response.json();
+
+      set({recipes: data, isLoading: false});
+    } catch (error) {
+      set({error: "Failed to fetch recipes", isLoading: false});
+    }
   },
   createRecipe: async (newRecipe) => {
     /* To be implemented by Tomilade */
