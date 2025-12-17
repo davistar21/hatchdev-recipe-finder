@@ -60,4 +60,21 @@ declare global {
     user: User;
     token: string;
   }
+
+  interface Pricing {
+    instacart: number;
+    amazon: number;
+  }
+
+  interface Recommendation {
+    id: string;
+    title: string;
+    description?: string;
+  }
+
+  interface CreateReview {
+    comment: string;
+    rating?: number;
+  }
 }
+
