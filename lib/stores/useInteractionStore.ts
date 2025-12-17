@@ -1,17 +1,19 @@
 import { create } from "zustand";
 import axios from "@/lib/api/axios";
 
+type CreateReview = Omit<Review, "id">;
+
 type InteractionState = {
   checklist: Record<string, boolean>;
-  reviews: any[];
-  recommendations: any[];
-  pricing: any | null;
+  reviews: Review[];
+  recommendations: Recommendation[];
+  pricing: Pricing | null;
 
   toggleIngredient: (id: string) => void;
   loadChecklist: () => void;
 
   fetchReviews: (recipeId: string) => Promise<void>;
-  addReview: (recipeId: string, data: any) => Promise<void>;
+  addReview: (recipeId: string, data: CreateReview) => Promise<void>;
 
   fetchRecommendations: (mood: string) => Promise<void>;
   fetchPricing: (recipeId: string) => Promise<void>;
@@ -55,7 +57,7 @@ export const useInteractionStore = create<InteractionState>((set, get) => ({
     set({ recommendations: res.data });
   },
 
-  fetchPricing: async (recipeId) => {
+  fetchPricing: async (recipeId: string) => {
     const res = await axios.get(`/pricing/${recipeId}`);
     set({ pricing: res.data });
   },
