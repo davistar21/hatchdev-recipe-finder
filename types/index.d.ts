@@ -71,4 +71,10 @@ declare global {
     title: string;
     description?: string;
   }
+
+  interface CreateReview {
+    comment: string;
+    rating?: number;
+  }
 }
+

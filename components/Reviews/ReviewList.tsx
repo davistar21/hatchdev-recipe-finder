@@ -14,7 +14,7 @@ export default function ReviewList({ recipeId }: { recipeId: string }) {
     <div>
       {reviews.map((review) => (
         <div key={review.id} className="border p-2 rounded mb-2">
-          <p className="font-semibold">{review.user.name}</p>
+          <p className="font-semibold">{review.userName}</p>
           <p>{review.comment}</p>
         </div>
       ))}

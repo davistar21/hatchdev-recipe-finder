@@ -1,8 +1,6 @@
 import { create } from "zustand";
 import axios from "@/lib/api/axios";
 
-type CreateReview = Omit<Review, "id">;
-
 type InteractionState = {
   checklist: Record<string, boolean>;
   reviews: Review[];
