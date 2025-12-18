@@ -6,8 +6,15 @@ import { ProfileStats } from "@/components/profile/ProfileStats";
 import { ProfileGrid } from "@/components/profile/ProfileGrid";
 import { Button } from "@/components/ui/button";
 import { Settings } from "lucide-react";
+import { useAuthStore } from "@/lib/stores/useAuthStore";
 
 export default function ProfilePage() {
+  const { fetchProfile, user } = useAuthStore();
+
+  React.useEffect(() => {
+    
+    fetchProfile();
+  }, [fetchProfile]);
   return (
     <div className="bg-background min-h-screen flex justify-center font-display">
       <div className="relative flex h-full w-full max-w-md flex-col bg-background shadow-2xl overflow-hidden min-h-screen">
