@@ -10,13 +10,19 @@ import { RecipeCard } from "./RecipeCard";
 // import { Leaf } from "lucide-react";
 import { useSearchStore } from "@/lib/stores/useSearchStore";
 import { Skeleton } from "../ui/skeleton";
+import { Loader2 } from "lucide-react";
+import { Button } from "../ui/button";
 
 export function RecipeFeed() {
-    const {results, isLoading, searchRecipes } = useSearchStore();
+    const {results, isLoading, searchRecipes, hasMore } = useSearchStore();
 
     useEffect(() => {
-        searchRecipes();
+        searchRecipes(true);
     }, [])
+
+    const handleLoadMore = () => {
+      searchRecipes(false)
+    }
 
   return (
     <div className="bg-background min-h-screen flex justify-center font-display">
@@ -34,7 +40,7 @@ export function RecipeFeed() {
         {/* Scrollable Feed Content */}
         <div className="flex flex-col px-4 pt-4 gap-6 overflow-y-auto no-scrollbar">
 
-          {isLoading && (
+          {isLoading && results.length === 0 && (
             <div className="flex flex-col gap-6">
               {[1,2,3].map((i) => (
                 <Skeleton key={i} className="h-[320px] w-full rounded-3xl" />
@@ -57,7 +63,34 @@ export function RecipeFeed() {
             </Link>
           ))}
 
+          {/* LOAD MORE BUTTON */}
+          {results.length > 0 && hasMore && (
+            <div className="py-4 flex justify-center">
+              <Button 
+                variant="outline"
+                onClick={handleLoadMore}
+                disabled={isLoading}
+                className="w-full rounded-full"
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Loading...
+                  </>) : (
+                    "Load More Recipes"
+                  )}
+              </Button>
+            </div>
+          )
+          }
+
           {isLoading && results.length === 0 && <div className="text-center text-muted-foreground py-10">No recipes found.</div>}
+
+          {!isLoading && results.length > 0 && !hasMore && (
+             <div className="text-center text-xs text-muted-foreground py-4">
+              You&apos;ve reached the end! 🍽️
+             </div>
+          )}
 
           <div className="h-8"></div>
         </div>
