@@ -10,6 +10,7 @@ interface RecipeStore {
   createRecipe: (data: Partial<Recipe>) => Promise<void>; // Skeleton
   setActiveRecipe: (recipe: Recipe) => void;
   updateRecipe: (recipe: Recipe) => void;
+  deleteRecipe: (id: string) => Promise<void>;
 }
 
 export const useRecipeStore = create<RecipeStore>((set) => ({
@@ -24,6 +25,28 @@ export const useRecipeStore = create<RecipeStore>((set) => ({
 
   updateRecipe: (recipe) => {
     set({ activeRecipe: recipe });
+  },
+
+  deleteRecipe: async (id) => {
+    /* To be implemented by Tomilade */
+    set({ isLoading: true, error: null });
+
+    try {
+      const response = await fetch(`/api/recipes/${id}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (response.ok) {
+        set((state) => ({
+          recipes: state.recipes.filter((recipe) => recipe.id !== id),
+          activeRecipe: state.activeRecipe?.id === id ? null : state.activeRecipe,
+          isLoading: false,
+        }));
+      }
+    } catch (error) {
+      set({ error: "Failed to delete recipe", isLoading: false });
+    }
   },
 
   fetchRecipes: async () => {
