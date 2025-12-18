@@ -9,7 +9,11 @@ interface AuthState {
   error: string | null;
 
   login: (credentials: { email: string; password: string }) => Promise<void>;
-  register: (data: { name: string; email: string; password: string }) => Promise<void>;
+  register: (data: {
+    name: string;
+    email: string;
+    password: string;
+  }) => Promise<void>;
 
   fetchProfile: () => Promise<void>;
   updateProfile: (data: { name: string; bio: string }) => Promise<void>;
@@ -59,7 +63,7 @@ export const useAuthStore = create<AuthState>()(
         set({ isLoading: true, error: null });
 
         try {
-          const res = await api.post<AuthResponse>("/auth/register", data);
+          const res = await api.post<AuthResponse>("/auth/signup", data);
           const { token, user } = res.data;
 
           if (typeof window !== "undefined") {
@@ -115,9 +119,13 @@ export const useAuthStore = create<AuthState>()(
           // backend may expect "image" or "file". If "image" fails, change to "file".
           formData.append("image", file);
 
-          const res = await api.post<{ url: string }>("/upload/images", formData, {
-            headers: { "Content-Type": "multipart/form-data" },
-          });
+          const res = await api.post<{ url: string }>(
+            "/upload/images",
+            formData,
+            {
+              headers: { "Content-Type": "multipart/form-data" },
+            }
+          );
 
           const imageUrl = res.data.url;
 
