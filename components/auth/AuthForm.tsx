@@ -5,12 +5,40 @@ import Link from "next/link";
 import { Utensils, Mail, EyeOff, ArrowRight } from "lucide-react";
 import { SocialLoginButtons } from "./SocialLoginButtons";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+import { useAuthStore } from "@/lib/stores/useAuthStore";
 
 interface AuthFormProps {
   mode: "login" | "signup";
 }
 
 export function AuthForm({ mode }: AuthFormProps) {
+  const router = useRouter();
+
+  const { login, register, isLoading, error, clearError } = useAuthStore();
+
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    clearError();
+
+    try {
+      if (mode === "login") {
+        await login({ email, password });
+      } else {
+        await register({ name, email, password });
+      }
+
+      // After auth, send user into the app (change route if your team uses something else)
+      router.push("/recipes");
+    } catch {
+      // error is already set in the store
+    }
+  };
+
   return (
     <div className="w-full max-w-md bg-background flex flex-col min-h-screen relative shadow-2xl overflow-hidden mx-auto">
       {/* Header Image Section */}
@@ -72,7 +100,26 @@ export function AuthForm({ mode }: AuthFormProps) {
           </div>
 
           {/* Form Inputs */}
-          <form className="flex flex-col gap-5">
+          <form className="flex flex-col gap-5" onSubmit={onSubmit}>
+            {/* Name Field (Signup only) */}
+            {mode === "signup" && (
+              <div className="group/input">
+                <label className="block text-sm font-medium text-foreground/80 mb-1.5 ml-1">
+                  Full Name
+                </label>
+                <div className="flex items-center w-full rounded-xl bg-muted/50 border-2 border-transparent focus-within:border-primary/50 transition-colors shadow-sm overflow-hidden h-14">
+                  <input
+                    type="text"
+                    placeholder="Ibraheem"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full bg-transparent border-none text-foreground placeholder:text-muted-foreground focus:ring-0 px-4 h-full text-base outline-none"
+                    required
+                  />
+                </div>
+              </div>
+            )}
+
             {/* Email Field */}
             <div className="group/input">
               <label className="block text-sm font-medium text-foreground/80 mb-1.5 ml-1">
@@ -82,7 +129,10 @@ export function AuthForm({ mode }: AuthFormProps) {
                 <input
                   type="email"
                   placeholder="hello@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-transparent border-none text-foreground placeholder:text-muted-foreground focus:ring-0 px-4 h-full text-base outline-none"
+                  required
                 />
                 <div className="pr-4 text-muted-foreground group-focus-within/input:text-primary transition-colors">
                   <Mail className="w-5 h-5" />
@@ -99,7 +149,10 @@ export function AuthForm({ mode }: AuthFormProps) {
                 <input
                   type="password"
                   placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="w-full bg-transparent border-none text-foreground placeholder:text-muted-foreground focus:ring-0 px-4 h-full text-base outline-none"
+                  required
                 />
                 <Button
                   type="button"
@@ -124,10 +177,23 @@ export function AuthForm({ mode }: AuthFormProps) {
               </div>
             )}
 
+            {/* Error Message */}
+            {error && (
+              <p className="text-sm font-medium text-red-500 -mt-1">{error}</p>
+            )}
+
             {/* Primary Action Button */}
-            <Button className="w-full bg-primary hover:bg-primary/90 active:scale-[0.98] transition-all h-14 rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 mt-2">
+            <Button
+              type="submit"
+              disabled={isLoading}
+              className="w-full bg-primary hover:bg-primary/90 active:scale-[0.98] transition-all h-14 rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 mt-2"
+            >
               <span className="text-primary-foreground font-bold text-lg">
-                {mode === "login" ? "Log In" : "Get Cooking"}
+                {isLoading
+                  ? "Please wait..."
+                  : mode === "login"
+                  ? "Log In"
+                  : "Get Cooking"}
               </span>
               <ArrowRight className="ml-2 text-primary-foreground font-bold w-5 h-5" />
             </Button>
