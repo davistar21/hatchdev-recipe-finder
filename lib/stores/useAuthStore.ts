@@ -14,6 +14,8 @@ interface AuthState {
   fetchProfile: () => Promise<void>;
   updateProfile: (data: { name: string; bio: string }) => Promise<void>;
 
+  uploadAvatar: (file: File) => Promise<string>;
+
   logout: () => void;
   setUser: (user: User) => void;
   clearError: () => void;
@@ -82,8 +84,8 @@ export const useAuthStore = create<AuthState>()(
         try {
           const res = await api.get<User>("/users/me");
           set({ user: res.data, isLoading: false });
-        } catch (err: any) {
-          // backend may not be ready yet; avoid breaking the profile page
+        } catch {
+          // backend might not be ready yet - don't break UI
           set({ isLoading: false });
         }
       },
@@ -99,6 +101,37 @@ export const useAuthStore = create<AuthState>()(
             err?.response?.data?.message ||
             err?.response?.data?.error ||
             "Update failed. Please try again.";
+
+          set({ error: message, isLoading: false });
+          throw err;
+        }
+      },
+
+      uploadAvatar: async (file) => {
+        set({ isLoading: true, error: null });
+
+        try {
+          const formData = new FormData();
+          // backend may expect "image" or "file". If "image" fails, change to "file".
+          formData.append("image", file);
+
+          const res = await api.post<{ url: string }>("/upload/images", formData, {
+            headers: { "Content-Type": "multipart/form-data" },
+          });
+
+          const imageUrl = res.data.url;
+
+          set((state) => ({
+            user: state.user ? { ...state.user, avatar: imageUrl } : state.user,
+            isLoading: false,
+          }));
+
+          return imageUrl;
+        } catch (err: any) {
+          const message =
+            err?.response?.data?.message ||
+            err?.response?.data?.error ||
+            "Image upload failed. Please try again.";
 
           set({ error: message, isLoading: false });
           throw err;
