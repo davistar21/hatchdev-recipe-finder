@@ -9,11 +9,10 @@ interface AuthState {
   error: string | null;
 
   login: (credentials: { email: string; password: string }) => Promise<void>;
-  register: (data: {
-    name: string;
-    email: string;
-    password: string;
-  }) => Promise<void>;
+  register: (data: { name: string; email: string; password: string }) => Promise<void>;
+
+  fetchProfile: () => Promise<void>;
+  updateProfile: (data: { name: string; bio: string }) => Promise<void>;
 
   logout: () => void;
   setUser: (user: User) => void;
@@ -71,6 +70,35 @@ export const useAuthStore = create<AuthState>()(
             err?.response?.data?.message ||
             err?.response?.data?.error ||
             "Sign up failed. Please try again.";
+
+          set({ error: message, isLoading: false });
+          throw err;
+        }
+      },
+
+      fetchProfile: async () => {
+        set({ isLoading: true, error: null });
+
+        try {
+          const res = await api.get<User>("/users/me");
+          set({ user: res.data, isLoading: false });
+        } catch (err: any) {
+          // backend may not be ready yet; avoid breaking the profile page
+          set({ isLoading: false });
+        }
+      },
+
+      updateProfile: async (data) => {
+        set({ isLoading: true, error: null });
+
+        try {
+          const res = await api.patch<User>("/users/me", data);
+          set({ user: res.data, isLoading: false });
+        } catch (err: any) {
+          const message =
+            err?.response?.data?.message ||
+            err?.response?.data?.error ||
+            "Update failed. Please try again.";
 
           set({ error: message, isLoading: false });
           throw err;
