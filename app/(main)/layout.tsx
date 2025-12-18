@@ -12,17 +12,25 @@ export default function MainGroupLayout({
   const router = useRouter();
   const pathname = usePathname();
 
-  const { token, user } = useAuthStore();
+  const { user } = useAuthStore();
 
   React.useEffect(() => {
     // if not authenticated, redirect to login
-    if (!token && !user) {
+    console.log(
+      "THis is user",
+      user,
+      "tis is pathname",
+      pathname,
+      "this is router",
+      router
+    );
+    if (!user) {
       router.replace(`/login?next=${encodeURIComponent(pathname)}`);
     }
-  }, [token, user, router, pathname]);
+  }, [user, router, pathname]);
 
   // while redirecting, don't render protected UI
-  if (!token && !user) return null;
+  if (!user) return null;
 
   return <>{children}</>;
 }

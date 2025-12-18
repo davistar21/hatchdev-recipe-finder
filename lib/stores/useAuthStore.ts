@@ -8,7 +8,7 @@ interface AuthState {
   isLoading: boolean;
   error: string | null;
 
-  login: (credentials: { email: string; password: string }) => Promise<void>;
+  login: (credentials: { username: string; password: string }) => Promise<void>;
   register: (data: {
     username: string;
     email: string;
@@ -40,7 +40,20 @@ export const useAuthStore = create<AuthState>()(
 
         try {
           const res = await api.post<AuthResponse>("/auth/login", credentials);
-          const { token, user } = res.data;
+
+          const { token, ...userData } = res.data.data;
+
+          // Construct the Frontend User object from Backend data
+          const user: User = {
+            id: userData.id,
+            email: userData.email,
+            name: userData.username, // mapping username into name for now as existing code uses name
+            avatar: userData.profile_pic || undefined,
+            bio: userData.bio || undefined,
+            followersCount: 0, // Backend doesn't return this on login yet
+            followingCount: 0,
+            recipesCount: 0,
+          };
 
           // Axios interceptor reads token from localStorage("token")
           if (typeof window !== "undefined") {
@@ -64,7 +77,19 @@ export const useAuthStore = create<AuthState>()(
 
         try {
           const res = await api.post<AuthResponse>("/auth/signup", data);
-          const { token, user } = res.data;
+
+          const { token, ...userData } = res.data.data;
+
+          const user: User = {
+            id: userData.id,
+            email: userData.email,
+            name: userData.username,
+            avatar: userData.profile_pic || undefined,
+            bio: userData.bio || undefined,
+            followersCount: 0,
+            followingCount: 0,
+            recipesCount: 0,
+          };
 
           if (typeof window !== "undefined") {
             localStorage.setItem("token", token);

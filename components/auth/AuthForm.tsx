@@ -19,6 +19,7 @@ export function AuthForm({ mode }: AuthFormProps) {
 
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
+  const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -27,13 +28,13 @@ export function AuthForm({ mode }: AuthFormProps) {
 
     try {
       if (mode === "login") {
-        await login({ email, password });
+        await login({ username, password });
       } else {
         await register({ username: name, email, password });
       }
 
       // After auth, send user into the app (change route if your team uses something else)
-      router.push("/recipes");
+      router.push("/feed");
     } catch {
       // error is already set in the store
     }
@@ -120,17 +121,21 @@ export function AuthForm({ mode }: AuthFormProps) {
               </div>
             )}
 
-            {/* Email Field */}
+            {/* Username Field */}
             <div className="group/input">
               <label className="block text-sm font-medium text-foreground/80 mb-1.5 ml-1">
-                Email Address
+                {mode === "login" ? "Username" : "Email Address"}
               </label>
               <div className="flex items-center w-full rounded-xl bg-muted/50 border-2 border-transparent focus-within:border-primary/50 transition-colors shadow-sm overflow-hidden h-14">
                 <input
-                  type="email"
-                  placeholder="hello@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  type={mode === "login" ? "text" : "email"}
+                  placeholder={mode === "login" ? "human" : "hello@example.com"}
+                  value={mode === "login" ? username : email}
+                  onChange={(e) =>
+                    mode === "login"
+                      ? setUsername(e.target.value)
+                      : setEmail(e.target.value)
+                  }
                   className="w-full bg-transparent border-none text-foreground placeholder:text-muted-foreground focus:ring-0 px-4 h-full text-base outline-none"
                   required
                 />
