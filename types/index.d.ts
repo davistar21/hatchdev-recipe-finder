@@ -56,9 +56,23 @@ declare global {
     recipesCount: number;
   }
 
-  interface AuthResponse {
-    user: User;
+  interface BackendUser {
+    id: string;
+    email: string;
+    username: string;
+    profile_pic: string | null;
+    bio: string | null;
+    cooking_skill_level: string | null;
+  }
+
+  interface AuthResponseData extends BackendUser {
     token: string;
+  }
+  interface AuthResponse {
+    success: boolean;
+    message: string;
+    code: number;
+    data: AuthResponseData;
   }
 
   interface Pricing {
@@ -77,4 +91,3 @@ declare global {
     rating?: number;
   }
 }
-
