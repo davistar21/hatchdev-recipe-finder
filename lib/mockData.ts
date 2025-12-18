@@ -101,3 +101,13 @@ export const MOCK_RECIPES: Recipe[] = [
     reviews: [],
   },
 ];
+
+
+// Creating a larger list by reapeating the existing recipes
+export const PAGINATED_RECIPES = [
+  ...MOCK_RECIPES,
+  ...MOCK_RECIPES.map (r => ({ ...r, id:r.id + "_copy1"})),
+  ...MOCK_RECIPES.map (r => ({ ...r, id:r.id + "_copy2"})),
+  ...MOCK_RECIPES.map (r => ({ ...r, id:r.id + "_copy3"})),
+  ...MOCK_RECIPES.map (r => ({ ...r, id:r.id + "_copy4"})),
+]
