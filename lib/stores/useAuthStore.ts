@@ -10,7 +10,7 @@ interface AuthState {
 
   login: (credentials: { email: string; password: string }) => Promise<void>;
   register: (data: {
-    name: string;
+    username: string;
     email: string;
     password: string;
   }) => Promise<void>;

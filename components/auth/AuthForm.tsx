@@ -29,7 +29,7 @@ export function AuthForm({ mode }: AuthFormProps) {
       if (mode === "login") {
         await login({ email, password });
       } else {
-        await register({ name, email, password });
+        await register({ username: name, email, password });
       }
 
       // After auth, send user into the app (change route if your team uses something else)
