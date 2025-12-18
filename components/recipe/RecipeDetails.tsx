@@ -14,6 +14,9 @@ interface RecipeDetailsProps {
 }
 
 export function RecipeDetails({ recipe }: RecipeDetailsProps) {
+
+
+
   return (
     <div className="bg-background min-h-screen flex justify-center font-display">
       <div className="relative flex h-full w-full max-w-md flex-col bg-background shadow-2xl overflow-hidden min-h-screen pb-28">
