@@ -90,4 +90,22 @@ declare global {
     comment: string;
     rating?: number;
   }
+
+  interface RecipeCardProps {
+    title: string;
+    image: string;
+    author: {
+      name: string;
+      avatar: string;
+    };
+    rating: number;
+    reviews: number;
+    time: string;
+    calories?: string;
+    tag?: string;
+    tagIcon?: React.ReactNode;
+
+    onOpenRecipe?: () => void;
+    onOpenChef?: () => void;
+  }
 }

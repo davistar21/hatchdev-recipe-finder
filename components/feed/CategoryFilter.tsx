@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import { useSearchStore } from "@/lib/stores/useSearchStore";
 
 const CATEGORIES = [
@@ -16,7 +17,7 @@ export function CategoryFilter() {
   const {filters, setCategory, searchRecipes} = useSearchStore();
 
   const handleCategoryClick = (category: string) => {
-    const newValue = category === "All" ? null: category;
+    const newValue = category === "All" ? null: category.toLowerCase();
 
     setCategory(newValue);
     searchRecipes();

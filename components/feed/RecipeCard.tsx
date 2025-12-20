@@ -5,20 +5,6 @@ import Image from "next/image";
 import { Heart, Star, Clock, Flame, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-interface RecipeCardProps {
-  title: string;
-  image: string;
-  author: {
-    name: string;
-    avatar: string;
-  };
-  rating: number;
-  reviews: number;
-  time: string;
-  calories?: string;
-  tag?: string;
-  tagIcon?: React.ReactNode;
-}
 
 export function RecipeCard({
   title,
@@ -30,16 +16,27 @@ export function RecipeCard({
   calories,
   tag,
   tagIcon,
+
+  onOpenRecipe,
+  onOpenChef,
 }: RecipeCardProps) {
   return (
     <article className="flex flex-col rounded-2xl bg-card shadow-[0_2px_12px_rgba(0,0,0,0.06)] overflow-hidden group">
-      <div className="relative w-full aspect-[4/3] overflow-hidden">
+      <div
+      onClick={onOpenRecipe}
+      className="relative w-full aspect-[4/3] overflow-hidden"
+      >
         <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105">
           <Image src={image} alt={title} fill className="object-cover" />
         </div>
 
         {/* Creator Badge */}
-        <div className="absolute top-3 left-3 flex items-center gap-2 bg-white/90 dark:bg-black/70 backdrop-blur-sm p-1.5 pr-3 rounded-full shadow-sm z-10">
+        <div
+        onClick={(e) => {
+          e.stopPropagation();
+          onOpenChef?.()
+        }}
+        className="absolute top-3 left-3 flex items-center gap-2 bg-white/90 dark:bg-black/70 backdrop-blur-sm p-1.5 pr-3 rounded-full shadow-sm z-10">
           <div className="relative w-6 h-6 rounded-full overflow-hidden">
             <Image
               src={author.avatar}
@@ -57,6 +54,9 @@ export function RecipeCard({
         <Button
           variant="ghost"
           size="icon"
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
           className="absolute top-3 right-3 rounded-full bg-white/20 backdrop-blur-md hover:bg-primary transition-colors text-white hover:text-primary-foreground z-10 w-10 h-10"
         >
           <Heart className="w-5 h-5" />
@@ -102,6 +102,9 @@ export function RecipeCard({
             <Button
               variant="ghost"
               size="icon"
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
               className="hover:text-primary transition-colors"
             >
               <Share2 className="w-5 h-5" />

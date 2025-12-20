@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FeedHeader } from "./FeedHeader";
 import { SearchBar } from "./SearchBar";
@@ -14,15 +15,17 @@ import { Loader2 } from "lucide-react";
 import { Button } from "../ui/button";
 
 export function RecipeFeed() {
-    const {results, isLoading, searchRecipes, hasMore } = useSearchStore();
+  const router = useRouter();
 
-    useEffect(() => {
-        searchRecipes(true);
-    }, [])
+  const {results, isLoading, searchRecipes, hasMore } = useSearchStore();
 
-    const handleLoadMore = () => {
-      searchRecipes(false)
-    }
+  useEffect(() => {
+      searchRecipes(true);
+  }, [])
+
+  const handleLoadMore = () => {
+    searchRecipes(false)
+  }
 
   return (
     <div className="bg-background min-h-screen flex justify-center font-display">
@@ -59,6 +62,8 @@ export function RecipeFeed() {
                 reviews={recipe.reviewsCount}
                 time={recipe.time}
                 calories={recipe.calories}
+                onOpenRecipe={() => router.push(`/recipes/${recipe.id}`)}
+                onOpenChef={() => router.push(`/chef/${recipe.chef.name}`)}
               />
             </Link>
           ))}
@@ -66,7 +71,7 @@ export function RecipeFeed() {
           {/* LOAD MORE BUTTON */}
           {results.length > 0 && hasMore && (
             <div className="py-4 flex justify-center">
-              <Button 
+              <Button
                 variant="outline"
                 onClick={handleLoadMore}
                 disabled={isLoading}
