@@ -135,32 +135,41 @@ export function WelcomeScreen() {
           <Button
             variant="outline"
             className="h-12 w-12 rounded-full border-border shadow-sm hover:scale-105 transition-transform bg-card p-0"
+            onClick={() => alert("Coming soon")}
           >
+          </Button>
             <img
               alt="Google"
               className="h-6 w-6"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsUNrqbIdwlF38Y-ARTjLp6mcVWcmal9x0PhOzZA7hvAcDCRBRNEu5hfh19M3i4Q0gIFt71QmQjQHOHFajiMaOsRyPiLzfVIZ-s59LkMpUyg5RiZ9vmUmy3gP3m4qDa2laqDLGeUof7f8HBk6gDj_IQZNXw8J6x6wf0G8HCuGvmfjFXLBSHioXPXQYNZoff3a34nI-Uez9HpDTnbVw7fixVrzytftX812xvR-nVLnPFI7m7oZ9n7-5UPaseEXJ_uBnoRJGh_927kE"
             />
-          </Button>
+           <Link href= "#">
+           </Link>
           <Button
             variant="outline"
             className="h-12 w-12 rounded-full border-border shadow-sm hover:scale-105 transition-transform bg-card p-0"
+            onClick={() => alert("Coming soon")}
           >
+           <Link href= "#">
             <img
               alt="Apple"
               className="h-6 w-6 dark:invert"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuC42zY1vStDi_gFahJR4PIZ2xO_41B5HGvXFnvoaOz0WsxrXlt3T8CydKx9ZAij7UlaHBpB7b6aCkIZNBuhc3yAHEX9q2zjRNa2y--hXiH_Q9DfxxFjHmalEULBMpG5v1jVyKh4Wl5C3dzdpk8cgQVdeQbobRrliot-fTYe1dpTNlqO8CL_mRwa1PrOL4uLxd18q6DkbUm2RflacqeYO4prjLbg96Y96w5NNRZPOWkPGZOcMCMNZPP4KmNiUarNp5hzac2lsd-Np04"
             />
+           </Link>
           </Button>
           <Button
             variant="outline"
             className="h-12 w-12 rounded-full border-border shadow-sm hover:scale-105 transition-transform bg-card p-0"
+            onClick={() => alert("Coming soon")}
           >
+           <Link href= "#">
             <img
               alt="Facebook"
               className="h-6 w-6"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuATTX5HFxY9UILjmRhiMJaXlvCYIWjyZa_am-HPiNZYEHyCXjfgiTQb6OoyH4WmgvsCOfD5_fybWGtsAy4DfglH4FstGQFu1jzBSOC9EpmpJqMvNFijHLd8pOGF7FN-DVucIDohLr34aegAmM0_CQq6pOzCAnjV_AUAXxFGrSuAcn3ySEaXvxrrp2F7qwDdYcMyUuSnM2uRbdCe4NjnBj4tf4NmramD6OKEwhdpioe6LPzIAS2BtUaPCUcipxzMjZuRwkx9uAwgcro"
             />
+           </Link>
           </Button>
         </div>
 
