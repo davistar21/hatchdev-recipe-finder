@@ -2,11 +2,12 @@
 
 import React from "react";
 import Link from "next/link";
-import { Utensils, Mail, EyeOff, ArrowRight } from "lucide-react";
+import { Utensils, Mail, EyeOff, ArrowRight, Eye } from "lucide-react";
 import { SocialLoginButtons } from "./SocialLoginButtons";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/lib/stores/useAuthStore";
+
 
 interface AuthFormProps {
   mode: "login" | "signup";
@@ -21,6 +22,7 @@ export function AuthForm({ mode }: AuthFormProps) {
   const [email, setEmail] = React.useState("");
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [showPassword, setShowPassword] = React.useState(false);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -106,12 +108,12 @@ export function AuthForm({ mode }: AuthFormProps) {
             {mode === "signup" && (
               <div className="group/input">
                 <label className="block text-sm font-medium text-foreground/80 mb-1.5 ml-1">
-                  Full Name
+                  Username
                 </label>
                 <div className="flex items-center w-full rounded-xl bg-muted/50 border-2 border-transparent focus-within:border-primary/50 transition-colors shadow-sm overflow-hidden h-14">
                   <input
                     type="text"
-                    placeholder="Ibraheem"
+                    placeholder="Username"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="w-full bg-transparent border-none text-foreground placeholder:text-muted-foreground focus:ring-0 px-4 h-full text-base outline-none"
@@ -129,7 +131,7 @@ export function AuthForm({ mode }: AuthFormProps) {
               <div className="flex items-center w-full rounded-xl bg-muted/50 border-2 border-transparent focus-within:border-primary/50 transition-colors shadow-sm overflow-hidden h-14">
                 <input
                   type={mode === "login" ? "text" : "email"}
-                  placeholder={mode === "login" ? "human" : "hello@example.com"}
+                  placeholder={mode === "login" ? "Username" : "name123@gmail.com"}
                   value={mode === "login" ? username : email}
                   onChange={(e) =>
                     mode === "login"
@@ -152,8 +154,8 @@ export function AuthForm({ mode }: AuthFormProps) {
               </label>
               <div className="flex items-center w-full rounded-xl bg-muted/50 border-2 border-transparent focus-within:border-primary/50 transition-colors shadow-sm overflow-hidden h-14">
                 <input
-                  type="password"
-                  placeholder="••••••••"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full bg-transparent border-none text-foreground placeholder:text-muted-foreground focus:ring-0 px-4 h-full text-base outline-none"
@@ -163,9 +165,14 @@ export function AuthForm({ mode }: AuthFormProps) {
                   type="button"
                   variant="ghost"
                   size="icon"
+                  onClick={() => setShowPassword((prev) => !prev)}
                   className="pr-4 text-muted-foreground hover:text-foreground transition-colors focus:outline-none hover:bg-transparent"
                 >
-                  <EyeOff className="w-5 h-5" />
+                    {showPassword ? (
+                      <Eye className="w-5 h-5" />
+                    ) : (
+                      <EyeOff className="w-5 h-5" />
+                    )}
                 </Button>
               </div>
             </div>
@@ -174,7 +181,7 @@ export function AuthForm({ mode }: AuthFormProps) {
             {mode === "login" && (
               <div className="flex justify-end">
                 <Link
-                  href="#"
+                  href="/forgot-password"
                   className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
                 >
                   Forgot Password?
