@@ -1,6 +1,5 @@
 import React from "react";
-import Link from "next/link";
-import { Utensils, Mail, EyeOff, ArrowRight, Star } from "lucide-react";
+import { Star } from "lucide-react";
 
 export function SocialLoginButtons() {
   return (
